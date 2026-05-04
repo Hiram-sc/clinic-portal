@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %} Gastropediatria | Início {% endblock %}
 
 {% block extra_css %}
-<style>
 
+<style>
+    
     .container-hero {
+        padding: 50px 0;
         display: flex;
         justify-content: center;
         gap: 30px;
@@ -13,7 +17,9 @@
 
     .hero-img {
         width: 300px;
-        border-radius: 60px;
+        border-radius: 18px;
+        object-fit: cover;
+        display: block;   
     }
 
     .hero-text {
@@ -31,6 +37,9 @@
 
     .text-hero {
         font-size: 18px;
+        color: var(--color-text-body);
+        font-weight: 500;
+        line-height: 1.5;
         margin-top: 12px;
     }
 
@@ -52,32 +61,46 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 10px 5px;
+        padding: 10px 20px;
         max-width: 300px;
         background-color: #fffbfb;
         border-radius: 10px;
         box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        transition: transform 0.4s ease;
+    }
+
+    .column-card:hover {
+        transform: translateY(-10px);
     }
     
     .title-card {
         font-size: 24px;
         color: var(--color-primary);
         line-height: 1.1;
+        min-height: 50px;
+    }
+
+    .text-soft {
+        font-size: 15px;
+        color: #7a5a5d;
+        line-height: 1.5;
     }
 
     .btn-column-card {
-        padding: 20px;
+        margin-top: auto;
+        padding-bottom: 10px;
     }
 
     .btn-card {
         color: var(--color-nav-link);
-        text-decoration: none;
         font-weight: 500;
-        transition: color 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.25s ease;
     }
 
     .btn-card:hover {
-        text-decoration: none;
+        transform: translateY(-2px);
     }
 
     .container-over {
@@ -105,7 +128,11 @@
 
     .text-informative-over {
         font-size: 16px;
-        color: #444;
+        line-height: 1.7;
+        color: var(--color-text-body);
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        max-width: 560px;
     }
 
     .container-mini-over {
@@ -139,12 +166,28 @@
         background-color: var(--color-accent-highlight);
         border-radius: 10px;
         box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        border: 1px solid rgba(243, 194, 201, 0.5);
+        transition: transform 0.3s ease;
+        transform: translateY(-10px);
+        animation: float 1.9s ease-in-out infinite;
     }
 
+    @keyframes float {
+        0% {transform: translateY(0); }
+        50% {transform: translateY(-8px); }
+        100% {transform: translateY(0); }
+    }
+
+    /* Section Sobre Consulta */
+
     .consult-process-container {
-        max-width: 600px;
         margin: 0 auto;
         margin-bottom: 100px;
+        padding: 24px;
+        background-color: var(--color-accent-highlight);
+        border-radius: 20px;
+        border: 1px solid rgba(243, 194, 201, 0.5);
+        max-width: 1050px;
     }
 
     .consult-process-title {
@@ -155,44 +198,23 @@
     }
 
     .consult-process-content {
-        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
         list-style: none;
-        padding-left: 35px;
-        margin: 0;
-    }
-
-    /* Linha vertical da timeline */
-    .consult-process-content::before {
-        content: '';
-        position: absolute;
-        left: 6px;
-        top: 10px;
-        bottom: 10px;
-        width: 2px;
-        background-color: #d1c1c1;
+        padding: 0;
     }
 
     .consult-process-content li {
-        position: relative;
-        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
         font-size: 18px;
-        color: #444;
+        flex: 1;
+        max-width: 200px;
     }
 
-    /* Marcador (círculo) de cada item da timeline */
-    .consult-process-content li::before {
-        content: '';
-        position: absolute;
-        left: -35px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 14px;
-        height: 14px;
-        background-color: #FDF8F8;
-        border: 2px solid #b8a7a7;
-        border-radius: 50%;
-        z-index: 2;
-    }
+    /* Section Dicas de Saúde */
 
     .health-tips-section {
         margin: 50px 0;
@@ -253,7 +275,7 @@
 <section class="hero">
     <div class="container-hero">
 
-        <img src="https://medicinasa.com.br/wp-content/uploads/2026/03/medica-hospital-tablet-digital-2t.jpg"
+        <img src="{% static 'home/img/drajanainasalgado.png' %}"
         alt="Imagem de uma médica" 
         class="hero-img">
         <div class="hero-text">
@@ -282,9 +304,9 @@
         <div class="column-card">
             <h2 class="title-card">Problemas Digestivos</h2>
             
-            <small class="text-muted">
+            <p class="text-soft">
                 Diagnóstico e tratamento de refluxo, constipação, diarreia, dores abdominais e outros sintomas gastrointestinais em crianças
-            </small>
+            </p>
             
             <div class="btn-column-card">
                 <a class="btn-card" href="https://instagram.com/hiramsimoes" target="_blank" rel="noopener noreferrer">Saiba mais ></a>
@@ -294,9 +316,9 @@
         <div class="column-card">
             <h2 class="title-card">Acompanhamento Nutricional</h2>
             
-            <small class="text-muted">
+            <p class="text-soft">
                 Orientação nutricional personalizada para promover o crescimento saudável e o desenvolvimento pleno do seu filho
-            </small>
+            </p>
 
             <div class="btn-column-card">
                 <a class="btn-card" href="https://instagram.com/hiramsimoes" target="_blank" rel="noopener noreferrer">Saiba mais ></a>
@@ -306,9 +328,9 @@
         <div class="column-card">
             <h2 class="title-card">Atenção Integral e Cuidado</h2>
             
-            <small class="text-muted">
+            <p class="text-soft">
                 Tratamentos direcionados às necessidades individuais de cada criança, promovendo saúde digestiva completa e bem-estar
-            </small>
+            </p>
 
             <div class="btn-column-card">
                 <a class="btn-card" href="https://instagram.com/hiramsimoes" target="_blank" rel="noopener noreferrer">Saiba mais ></a>
@@ -318,7 +340,7 @@
     </div>
 </section>
 
-<section class="py-4 over-section">
+<section class="py-5 over-section">
     <div class="container-over">
         <div class="column-over">
             <h2 class="title-over">
@@ -381,10 +403,27 @@
         <h2 class="consult-process-title">O que esperar da consulta</h2>
 
         <ul class="consult-process-content">
-            <li>Escuta detalhada dos sintomas</li>
-            <li>Avaliação clínica</li>
-            <li>Orientação alimentar</li>
-            <li>Plano de tratamento personalizado</li>
+            <li>
+                <span class="text">Escuta detalhada dos sintomas</span>
+                <span class="icon">
+                    <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
+                </span>
+            </li>
+            <li>
+                <span class="text">Avaliação clínica</span>
+                <span class="icon">
+                    <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
+                </span>
+            </li>
+            <li>
+                <span class="text">Orientação alimentar</span>
+                <span class="icon">
+                    <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary)"></i>
+                </span>
+            </li>
+            <li>
+                <span class="text">Plano de tratamento personalizado</span>
+            </li>
         </ul>
     </div>
 </section>
