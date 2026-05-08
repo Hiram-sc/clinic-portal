@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Gastropediatria {% endblock %}</title>
+
+    <!-- SEO -->
+    <title>{% block title %} Dra. Janaina Salgado - Gastropediatra {% endblock %}</title>
+    <meta name="description" content="Dra. Janaina Salgado, especialista em gastropediatria em Campos dos Goytacazes - RJ. Atendimento infantil especializado em doenças gastrointestinais pediátricas.">
+    <meta name="keywords" content="gastropediatra, pediatra, gastroenterologia infantil">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+
+    <!-- Open Graph (Whatsapp)-->
+     <meta property="og:title" content="Dra. Janaina Salgado - Gastropediatra">
+     <meta property="og:description" content="Atendimento em gastropediatria em Campos dos Goytacazes - RJ">
+     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/f8c32f1a2a.js" crossorigin="anonymous"></script>
+
+    <!-- Preload de conexão de fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -17,6 +36,7 @@
         }
 
         :root {
+            --nav-height: 60px;
             --color-primary: #6f3c3f;
             --color-bg-body: #e0adb1;
             --color-bg-container: #fff9f9;
@@ -28,9 +48,15 @@
 
         body {
             font-size: 16px;
-            font-family: ;
-            font-weight: 400;
-            padding-top: 60px;
+            padding-top: var(--nav-height);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body, p, textarea {
+            font-family: 'Inter', sans-serif;
         }
 
         .page-wrapper {
@@ -93,7 +119,7 @@
 
         .subtitle {
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 500;
             color: var(--color-primary);
             margin: 0;
             line-height: 1.1;
@@ -221,7 +247,7 @@
                             </h2>
                             
                             <p class="subtitle">
-                                - Gastropediatra
+                                Gastropediatra
                             </p>
                         </div>
                     </a>
