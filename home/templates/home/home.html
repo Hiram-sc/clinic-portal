@@ -21,7 +21,8 @@
         gap: 70px;
         background: linear-gradient(135deg, 
             #6B7C85 0%,    
-            #8A9AA3 60%,   
+            #A7B5BC 40%,   
+            #F4F7F8 75%,   
             #EBC1CB 100%   
         );
         padding: 130px 0;
@@ -29,10 +30,9 @@
 
     .hero-img {
         width: 100%;
-        max-width: 300px;
+        max-width: 340px;
         height: auto;
         border-radius: 18px;
-        object-fit: cover;
         display: block;   
     }
 
@@ -120,7 +120,7 @@
 
     .card-section {
         padding: 100px;
-        background-color: ;
+        background-color: #F2F6F9;
     }
     
     .title-card-section {
@@ -128,7 +128,7 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        max-width: 560px;
+        max-width: 580px;
         margin: auto;
     }
     
@@ -177,12 +177,12 @@
             #8A9AA3
         );
         border-radius: 20px;
-        border: 1px solid rgba(243, 194, 201, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         transition: transform 0.4s ease;
     }
 
     .btn-column-card:hover {
-        border: 1px solid rgba(193, 61, 81, 0.35);
+        border: 1px solid rgba(192, 185, 185, 0.2);
         box-shadow: 0 6px 15px rgba(0,0,0,0.08);
     }
 
@@ -237,8 +237,10 @@
         color: var(--color-primary);
         text-align: left;
         line-height: 1.1;
+        font-size: 28px;
+        font-weight: 700;
     }
-
+    
     .text-informative-over {
         font-size: 16px;
         line-height: 1.7;
@@ -250,22 +252,24 @@
     .container-mini-over {
         display: flex;
         flex-direction: column;
-        list-style: none;
-        max-width: 460px;
-        margin: 40px 0 18px;
-        padding-left: 40px;
         gap: 12px;
+        list-style: none;
+        margin: 40px 0 18px;
+        padding: 0;
+        max-width: 460px;
     }
-
-    .container-mini-over li {
+    
+    .item-over{
         display: flex;
-        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .container-mini-over h3 {
-        color: var(--color-primary);
-        font-size: 20px;
-        line-height: 1;
+    .item-informative-over {
+
+    }
+
+    .icon-over {
+        
     }
 
     .card-informative-over {
@@ -326,6 +330,76 @@
         max-width: 200px;
     }
 
+    .section-carousel {
+        background-color: #F4F6F9;
+        padding-top: var(--nav-height);
+        padding-bottom: var(--nav-height);
+    }
+
+    .carousel-container {
+        position: relative;
+        padding: 160px 0;
+    }
+
+    .carousel-viewport {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: 100%;
+    }
+
+    .carousel-card {
+        width: 100%;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel-card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+        padding: 50px;
+        border-radius: 20px;
+        background-color: #FFF;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .carousel-card-content p {
+        line-height: 1.7;
+        font-size: 17px;
+        color: #5A5A5A;
+    }
+
+    .quote {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 12px;
+    }
+    
+    .quote i {
+        font-size: 36px;
+    }
+
+    .star {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .star i {
+        font-size: 20px;
+    }
+
     /* Media Queries */
     @media (max-width: 768px) {
         .container-hero {
@@ -356,7 +430,7 @@
         <div class="container-hero-text">
 
         <div class="box-highlight">
-            <i class="fa-regular fa-circle-check" style="color: var(--color-accent-primary)"></i>
+            <i class="fa-regular fa-heart" style="color: rgb(246, 130, 138);"></i>
             <p>Cuidado especializado para o bem-estar do seu filho</p>
         </div>    
             
@@ -392,14 +466,14 @@
         </div>
 
         <img src="{% static 'home/img/drajanainasalgado.webp' %}"
-        alt="Imagem de uma médica" 
+        alt="Imagem médica Dra. Janaina Salgado em ambiente clínico"  
+        loading="lazy"
         class="hero-img">
 
     </div>
 </section>
 
 <section class="card-section">
-    
     <div class="title-card-section">
         <h3 class="title-primary">Como podemos ajudar seu filho?</h3>
         <p>Atendimento focado no diagnóstico, tratamento e orientação nutricional infantil.</p>
@@ -446,7 +520,7 @@
             <!--
             <img src="{% static 'home/svg/medical-report.png' %}">
             -->
-            <h2 class="title-card">Acompanhamento do Crescimento Infantil</h2>
+            <h2 class="title-card">Acompanhamento do Crescimento</h2>
             
             <p class="text-soft">
                 Monitoramento do desenvolvimento físico e nutricional da criança, garantindo crescimento saudável em cada fase da infância.
@@ -477,13 +551,13 @@
     </div>
 </section>
 
-<section class="py-5 over-section">
+<section class="py-5 over-section" id="sobre">
     <div class="container-over">
         <div class="column-over">
-            <h2 class="title-over">
+            <h3 class="title-over">
                 Por que escolher
                 <span class="break">a Dra. Janaina?</span>
-            </h2>
+            </h3>
 
             <p class="text-informative-over">
                 Com mais de 10 anos de experiência em gastroenterologia pediátrica,
@@ -492,24 +566,31 @@
             </p>
 
             <ul class="container-mini-over">
-                <li>
-                    <h3>Experiência</h3>
-                    <p class="text-informative-over">
-                        Especialista em gastroenterologia pediátrica, com ampla experiência no cuidado de doenças digestivas infantis.
+                <li class="item-over">
+                    <i class="fa-regular fa-circle-check icon-over"></i>
+                    <p class="item-informative-over">
+                        Experiência e especialização em Gastro Pediatria
                     </p>
                 </li>
 
-                <li>
-                    <h3>Atendimento Humanizado</h3>
-                    <p class="text-informative-over">
-                        Atendimento acolhedor e individualizado, com foco no bem-estar da criança e da família.
+                <li class="item-over"> 
+                    <i class="fa-regular fa-circle-check icon-over"></i>
+                    <p class="item-informative-over">
+                        Atendimento Humanizado e individualizado
                     </p>
                 </li>
 
-                <li>
-                    <h3>Ambiente Acolhedor</h3>
-                    <p class="text-informative-over">
-                        Consultório moderno e confortável, pensado para acolher crianças e responsáveis com segurança.
+                <li class="item-over">
+                    <i class="fa-regular fa-circle-check icon-over"></i>
+                    <p class="item-informative-over">
+                        Ambiente Acolhedor e pensado para crianças
+                    </p>
+                </li>
+                
+                <li class="item-over">
+                    <i class="fa-regular fa-circle-check icon-over"></i>
+                    <p class="item-informative-over">
+                        Acompanhamento contínuo e próximo da família
                     </p>
                 </li>
             </ul>
@@ -533,41 +614,73 @@
         </div>
     
     </div>
+        <div class="consult-process">
+            <div class="consult-process-container">
+                <h2 class="consult-process-title">a consulta</h2>
+        
+                <ul class="consult-process-content">
+                    <li>
+                        <span class="text">Escuta detalhada dos sintomas</span>
+                        <span class="icon">
+                            <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Avaliação clínica</span>
+                        <span class="icon">
+                            <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Orientação alimentar</span>
+                        <span class="icon">
+                            <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary)"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Plano de tratamento personalizado</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
 </section>
 
-<section class="consult-process">
-    <div class="consult-process-container">
-        <h2 class="consult-process-title">O que esperar da consulta</h2>
 
-        <ul class="consult-process-content">
-            <li>
-                <span class="text">Escuta detalhada dos sintomas</span>
-                <span class="icon">
-                    <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
-                </span>
-            </li>
-            <li>
-                <span class="text">Avaliação clínica</span>
-                <span class="icon">
-                    <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
-                </span>
-            </li>
-            <li>
-                <span class="text">Orientação alimentar</span>
-                <span class="icon">
-                    <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary)"></i>
-                </span>
-            </li>
-            <li>
-                <span class="text">Plano de tratamento personalizado</span>
-            </li>
-        </ul>
+
+<section class="section-carousel" id="depoimentos">
+    <h3 class="title-primary">
+        Depoimentos
+    </h3>
+    
+    <div class="carousel-container">
+        <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack">
+                {% for item in carousel %}
+
+                <div class="carousel-card">
+                    <div class="carousel-card-content">
+                        <div class="quote">
+                            <i class="fa-solid fa-quote-left" style="color: rgba(0,0,0,0.15);"></i>
+                        </div>
+                        
+                        <div class="star"> 
+                            "
+                            {% for _ in item.stars_range %}
+                            <i class="fa-solid fa-star" style="color: rgb(251, 206, 46);"></i>
+                            {% endfor %}
+                            " 
+                        </div>
+
+                        <p>{{ item.comment }}</p>
+                            
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
-</section>
-
-
-<section>
-    <h5 class="text-center">*Carrossel de Depoimentos*</h5>
 </section>
 
 <!--
@@ -579,6 +692,8 @@
 </section>
 -->
 
-        
+{% endblock %}
 
+{% block extra_scripts %}
+<script src="{% static 'home/js/script.js' %}" defer></script>
 {% endblock %}
