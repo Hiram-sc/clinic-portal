@@ -6,420 +6,8 @@
 
 {% block extra_css %}
 
-<style>
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 
-    .title-primary {
-        color: var(--color-primary);
-        font-size: 34px;
-        font-weight: 700;
-        text-align: center;
-    }
-    
-    .container-hero {
-        display: flex;
-        justify-content: center;
-        gap: 70px;
-        background: linear-gradient(135deg, 
-            #6B7C85 0%,    
-            #A7B5BC 40%,   
-            #F4F7F8 75%,   
-            #EBC1CB 100%   
-        );
-        padding: 130px 0;
-    }
-
-    .hero-img {
-        width: 100%;
-        max-width: 340px;
-        height: auto;
-        border-radius: 18px;
-        display: block;   
-    }
-
-    .container-hero-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .box-highlight {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
-        background-color: var(--color-accent-highlight);
-        border: 0 solid;
-        border-radius: 5px;
-        padding: 3px;
-        margin-bottom: 50px;
-        max-width: 400px;
-    }
-
-    .box-highlight p {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--color-accent-primary);
-        margin: 0;
-    }
-
-    .break {
-        display: block;
-    }
-
-    .text-highlight {
-        color: var(--color-accent-primary);
-    }
-
-    .hero-title {
-        font-size: 40px;
-        color: #FFF;    
-        margin-bottom: 12px;     
-    }
-
-    .hero-text {
-        font-size: 18px;
-        color: #FFF;
-        font-weight: 500;
-        line-height: 1.5;
-        margin-bottom: 40px;
-    }
-
-    .hero-btn {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 16px;
-        margin-top: 25px;
-    }
-
-    .card-btn {
-        color: #FFF;
-        font-weight: 500;
-        border-radius: 8px;
-        text-decoration: none;
-        display: inline-block;
-        padding: 8px 12px;
-        background: rgba(243, 194, 201, 0.18);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: transform 0.25s ease, background 0.25s ease;
-    }
-
-    .card-btn:hover {
-        transform: translateY(-2px);
-        background: rgba(243, 194, 201, 0.38);
-    }
-
-    .hero-note {
-        margin-top: 12px;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.7);
-        text-align: left;
-    }
-
-    /* Section Cards */
-
-    .card-section {
-        padding: 100px;
-        background-color: #F2F6F9;
-    }
-    
-    .title-card-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        max-width: 580px;
-        margin: auto;
-    }
-    
-    .title-card-section p {
-        text-align: center;
-    }
-
-    .container-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        max-width: 1100px;
-        margin: auto;
-        margin-top: 50px;
-        flex-wrap: wrap;
-    }
-
-    .column-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px 20px;
-        max-width: 300px;
-        background-color: #FFF;
-        border-radius: 20px;
-        border: 1px solid rgba(243, 194, 201, 0.35);
-        transition: transform 0.4s ease;
-    }
-
-    .column-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    }
-    
-    .btn-column-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 16px;
-        max-width: 310px;
-        background: linear-gradient(135deg,
-            #EBC1CB,
-            #8A9AA3
-        );
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: transform 0.4s ease;
-    }
-
-    .btn-column-card:hover {
-        border: 1px solid rgba(192, 185, 185, 0.2);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    }
-
-    .btn-column-card h2 {
-        color: #FFF;
-        min-height: 44px;
-        font-size: 20px;
-    }
-
-    .btn-column-card p {
-        font-size: 14px;
-        color: #FFF;
-    }
-
-    .title-card {
-        font-size: 24px;
-        color: var(--color-primary);
-        line-height: 1.1;
-        min-height: 50px;
-    }
-
-    .text-soft {
-        font-size: 15px;
-        color: #7a5a5d;
-        line-height: 1.5;
-    }
-
-    /* Section Sobre */
-
-    .over-section {
-        background-color: #FFF;
-    }
-
-    .container-over {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 70px;
-        margin: 50px auto;
-        max-width: 1200px;
-        padding: 0 20px;
-        flex-wrap: wrap;
-    }
-
-    .column-over {
-        max-width: 700px;
-        min-width: 280px;
-        flex: 1;
-    }
-
-    .title-over {
-        color: var(--color-primary);
-        text-align: left;
-        line-height: 1.1;
-        font-size: 28px;
-        font-weight: 700;
-    }
-    
-    .text-informative-over {
-        font-size: 16px;
-        line-height: 1.7;
-        color: var(--color-text-body);
-        letter-spacing: 0.2px;
-        max-width: 560px;
-    }
-
-    .container-mini-over {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        list-style: none;
-        margin: 40px 0 18px;
-        padding: 0;
-        max-width: 460px;
-    }
-    
-    .item-over{
-        display: flex;
-        align-items: flex-start;
-    }
-
-    .item-informative-over {
-
-    }
-
-    .icon-over {
-        
-    }
-
-    .card-informative-over {
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        gap: 10px;
-        padding: 40px 28px;
-        max-width: 250px;
-        background-color: var(--color-accent-highlight);
-        border-radius: 10px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-        border: 1px solid rgba(243, 194, 201, 0.5);
-        transition: transform 0.3s ease;
-        transform: translateY(-10px);
-        animation: float 1.9s ease-in-out infinite;
-    }
-
-    @keyframes float {
-        0% {transform: translateY(0); }
-        50% {transform: translateY(-8px); }
-        100% {transform: translateY(0); }
-    }
-
-    /* Section Sobre Consulta */
-
-    .consult-process-container {
-        margin: 0 auto;
-        margin-bottom: 100px;
-        padding: 24px;
-        background-color: var(--color-accent-highlight);
-        border-radius: 20px;
-        border: 1px solid rgba(243, 194, 201, 0.5);
-        max-width: 1050px;
-    }
-
-    .consult-process-title {
-        text-align: center;
-        font-size: 28px;
-        color: var(--color-primary);
-        margin-bottom: 40px;
-    }
-
-    .consult-process-content {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        list-style: none;
-        padding: 0;
-    }
-
-    .consult-process-content li {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 18px;
-        flex: 1;
-        max-width: 200px;
-    }
-
-    .section-carousel {
-        background-color: #F4F6F9;
-        padding-top: var(--nav-height);
-        padding-bottom: var(--nav-height);
-    }
-
-    .carousel-container {
-        position: relative;
-        padding: 160px 0;
-    }
-
-    .carousel-viewport {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .carousel-track {
-        display: flex;
-        transition: transform 0.5s ease;
-        width: 100%;
-    }
-
-    .carousel-card {
-        width: 100%;
-        min-width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .carousel-card-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        max-width: 600px;
-        width: 100%;
-        padding: 50px;
-        border-radius: 20px;
-        background-color: #FFF;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .carousel-card-content p {
-        line-height: 1.7;
-        font-size: 17px;
-        color: #5A5A5A;
-    }
-
-    .quote {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 12px;
-    }
-    
-    .quote i {
-        font-size: 36px;
-    }
-
-    .star {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-
-    .star i {
-        font-size: 20px;
-    }
-
-    /* Media Queries */
-    @media (max-width: 768px) {
-        .container-hero {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .hero-img {
-            width: 70%;
-            max-width: 200px;
-            margin-left: 0;
-        }
-
-        .hero-text {
-            margin-top: 20px;
-        }
-    }
-
-
-</style>
 {% endblock %}
 
 {% block content %}
@@ -430,8 +18,8 @@
         <div class="container-hero-text">
 
         <div class="box-highlight">
-            <i class="fa-regular fa-heart" style="color: rgb(246, 130, 138);"></i>
-            <p>Cuidado especializado para o bem-estar do seu filho</p>
+            <i class="fa-regular fa-circle-check icon-over" style="color: rgb(246, 130, 138);"></i>
+            <p>Membro da Sociedade Brasileira de Pediatria</p>
         </div>    
             
             <h2 class="hero-title">
@@ -448,6 +36,7 @@
             
             <div class="hero-btn">
                 <a href="{% url 'agendar_consulta' %}" class="btn-schedule">
+                    <i class="fa-regular fa-calendar"></i>
                     Agende sua Consulta
                 </a>
 
@@ -480,10 +69,11 @@
     </div>
     
     <div class="container-card">        
-        <div class="column-card">
-            <!--
-            <img src="{% static 'home/svg/stomach.png' %}">
-            -->
+        <div class="column-card card">
+            <div class="column-card-header">
+                <img src="{% static 'home/svg/stomach.svg' %}">
+            </div>
+
             <h2 class="title-card">Problemas Digestivos</h2>
             
             <p class="text-soft">
@@ -492,10 +82,11 @@
             
         </div>
 
-        <div class="column-card">
-            <!--
-            <img src="{% static 'home/svg/plan.png' %}">
-            -->
+        <div class="column-card card">
+            <div class="column-card-header">
+                <img src="{% static 'home/svg/plan.svg' %}">
+            </div>
+
             <h2 class="title-card">Acompanhamento Nutricional</h2>
             
             <p class="text-soft">
@@ -504,10 +95,11 @@
 
         </div>
         
-        <div class="column-card">
-            <!--
-            <img src="{% static 'home/svg/healthcare.png' %}">
-            -->
+        <div class="column-card card">
+            <div class="column-card-header">
+                <img src="{% static 'home/svg/healthcare.svg' %}">
+            </div>
+
             <h2 class="title-card">Atenção Integral e Cuidado</h2>
             
             <p class="text-soft">
@@ -516,10 +108,11 @@
         
         </div>
         
-        <div class="column-card">
-            <!--
-            <img src="{% static 'home/svg/medical-report.png' %}">
-            -->
+        <div class="column-card card">
+            <div class="column-card-header">
+                <img src="{% static 'home/svg/check-up.svg' %}">
+            </div>
+
             <h2 class="title-card">Acompanhamento do Crescimento</h2>
             
             <p class="text-soft">
@@ -528,10 +121,11 @@
         
         </div>
         
-        <div class="column-card">
-            <!--
-            <img src="{% static 'home/svg/digestive.png' %}">
-            -->
+        <div class="column-card card">
+            <div class="column-card-header">
+                <img src="{% static 'home/svg/digestive.svg' %}">
+            </div>
+
             <h2 class="title-card">Prevenção em Saúde Digestiva</h2>
             
             <p class="text-soft">
@@ -540,19 +134,20 @@
         
         </div>
 
-        <div class="btn-column-card">
-            <h2>Deseja por mais informações?</h2>
+        <div class="btn-column-card card">
+            <h2>Acompanhe conteúdos educativos</h2>
 
-            <p>Verifique o instagram para mais conteúdo de referência.</p>
+            <p>Publicações com orientações práticas sobre saúde digestiva infantil e desenvolvimento.</p>
 
-            <a class="card-btn" href="https://instagram.com/hiramsimoes" target="_blank" rel="noopener noreferrer">Acessar Instagram</a>
+            <a class="card-btn" href="https://instagram.com/hiramsimoes" target="_blank" rel="noopener noreferrer">
+                Ver Conteúdos</a>
         </div>
         
     </div>
 </section>
 
 <section class="py-5 over-section" id="sobre">
-    <div class="container-over">
+    <div class="grid-container-over">
         <div class="column-over">
             <h3 class="title-over">
                 Por que escolher
@@ -597,26 +192,35 @@
         </div>
         
         <div class="card-informative-over">
-            <div class="informative-over">
-                <strong>10+ anos</strong>
-                <span>de experiência</span>
+            <div class="info-item">
+                <i class="fa-regular fa-user"></i>
+                
+                <div class="info-text">
+                    <span class="value">10+ anos</span>
+                    <span class="label">de experiência</span>
+                </div>
             </div>
 
-            <div class="informative-over">
-                <strong>Gastro Pediátrica</strong>
-                <span>especialização</span>
+            <div class="info-item">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div class="info-text">
+                    <span class="value">Gastro Pediátrica</span>
+                    <span class="label">especialização médica</span>
+                </div>
             </div>
 
-            <div class="informative-over">
-                <strong>Atendimento humanizado</strong>
-                <span>foco no paciente</span>
+            <div class="info-item">
+                
+                <div class="info-text">
+                    <span class="value">Atendimento humanizado</span>
+                    <span class="label">foco no paciente</span>
+                </div>
             </div>
         </div>
-    
-    </div>
+
         <div class="consult-process">
             <div class="consult-process-container">
-                <h2 class="consult-process-title">a consulta</h2>
+                <h2 class="consult-process-title">Consulta</h2>
         
                 <ul class="consult-process-content">
                     <li>
@@ -643,9 +247,8 @@
                 </ul>
             </div>
         </div>
+    </div>
 </section>
-
-
 
 <section class="section-carousel" id="depoimentos">
     <h3 class="title-primary">
@@ -695,5 +298,7 @@
 {% endblock %}
 
 {% block extra_scripts %}
+
 <script src="{% static 'home/js/script.js' %}" defer></script>
+
 {% endblock %}
