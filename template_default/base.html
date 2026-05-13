@@ -55,7 +55,7 @@
             padding-top: var(--nav-height);
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, footer {
             font-family: 'Poppins', sans-serif;
         }
 
@@ -182,6 +182,10 @@
             padding-top: 20px;
             gap: 10px;
             flex-direction: column;
+            background: linear-gradient(135deg, 
+                #A7B5BC 40%,   
+                #EBC1CB 100%   
+            );
         }
 
         .footer-content {
@@ -189,45 +193,75 @@
             gap: 90px;
             justify-content: center;
             flex-wrap: wrap;
+            border-bottom: 2px solid rgba(0,0,0,0.08);
         }
 
         .footer-mini-content {
-            max-width: 280px;
+            max-width: 300px;
         }
 
         .footer-title {
             color: var(--color-primary);
             font-size: 16px;
+            margin-bottom: 14px;
         }
 
         .footer-text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             list-style: none;
             padding: 5px 0;
         }
 
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item i {
+            font-size: 16px;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .contact-header p {
+            color: #FFF;
+            margin: 0;
+            font-weight: 600;
+            line-height: 1;
+        }
+        
+        .contact-info {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .footer-link {
             text-decoration: none;
-            color: #312f2f;
+            color: #FFF;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            max-width: 300px;
+            height: 160px;
+            border-radius: 20px;
         }
 
         .footer-bottom {
-            position: relative;
-            background-color: var(--color-accent-primary);
             text-align: center;
             padding: 3px;
         }
 
-        .footer-bottom::before {
-            content: "";
-            display: block;
-            height: 0.8px;
-            background-color: #eeeaea;
-            width: calc(100% - 80px);
-            margin: 0 auto;
-        }
-
         footer small {
-            color: white;
+            color: #FFF;
             font-size: 14px;
             font-weight: 400;
         }
@@ -236,12 +270,15 @@
 
 {% block extra_css %}{% endblock %}
 </head>
+
 <body>
 
     <div class="page-wrapper">    
+
         <header>
             <div class="navbar-container">
                 <div class="navbar-inner">
+
                     <a class="container-title" href="{% url 'inicio' %}">
                         <i class="fa-solid fa-book-medical icon-medical"></i>
 
@@ -257,7 +294,6 @@
                     </a>
                     
                     <nav class="navbar navbar-expand-lg" role="navigation">
-                        
                         <button class="navbar-toggler"
                                 type="button" 
                                 data-bs-toggle="collapse" 
@@ -273,66 +309,107 @@
                                 <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Início</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#consultorio">Consultório</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'para_pais' %}">Para Pais</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'contato' %}">Contato</a></li>
                                 <li class="nav-item"><a class="btn-schedule" href="{% url 'agendar_consulta' %}">Agendar Consulta</a></li>
                             </ul>
                         </div>
                     </nav>
+
                 </div>    
             </div>  
         </header>
-
+        
         <main class="fade-in-content" role="main">
             {% block content %}{% endblock %}
         </main>
-
+        
+        {% block footer %}
         <footer>
+
             <div class="footer-content">
                 <div class="footer-mini-content">
-                    <h5 class="footer-title">CONTATO</h5>
+                    <h4 class="footer-title">Contato</h4>
                     <ul class="footer-text">
-                        <li>22 99999-9999</li>
-                        <li>drajanainasalgado</li>
-                        <li>Campos dos Goytacazes - RJ</li>
+                        
+                        <li class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            
+                            <div class="contact-content">
+                                <div class="contact-header">
+                                    <p>Telefone</p>
+                                </div>
+                                
+                                <span class="contact-info">(22) 99906-0047</span>
+                            </div>
+                        </li>
+            
+                        <li class="contact-item">
+                            <i class="fa-brands fa-instagram"></i>
+                            
+                            <div class="contact-content">
+                                <div class="contact-header">
+                                    <p>Instagram</p>
+                                </div>
+                                
+                                <span class="contact-info">@drajanainasalgado</span>
+                            </div>
+                        </li>
+        
                     </ul>
                 </div>
+
                 <div class="footer-mini-content">
-                    <h5 class="footer-title">NAVEGAÇÃO</h5>
+                    <h5 class="footer-title">Navegação</h5>
                     <ul class="footer-text">
                         <li><a class="footer-link" href="{% url 'inicio' %}">Início</a></li>
                         <li><a class="footer-link" href="#sobre">Sobre</a></li>
                         <li><a class="footer-link" href="#depoimentos">Depoimentos</a></li>
                         <li><a class="footer-link" href="{% url 'para_pais' %}">Para Pais</a></li>
-                        <li><a class="footer-link" href="{% url 'contato' %}">Contato</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-mini-content">
-                    <h5 class="footer-title">SOBRE</h5>
+                    <h5 class="footer-title">Sobre</h5>
                     <ul class="footer-text">
                         <li>Especialista em Gastroenterologia Pediátrica</li>
                         <li>Atendimento para crianças e adolescentes</li>
                     </ul>
                 </div>
+
                 <div class="footer-mini-content">
-                    <h5 class="footer-title">ENDEREÇO</h5>
-                    <ul class="footer-text">
-                        <li>Rua Pelinca Prédio 44</li>
-                        <li>Campos dos Goytacazes - RJ</li>
-                    </ul>
+                    <h5 class="footer-title">Endereço</h5>
+
+                    <div class="footer-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.465427355266!2d-41.327842625086966!3d-21.76224069797056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdd55b9ef2ad39%3A0x83eadb115cc75fd6!2sDra.%20Janaina%20Salgado%20Carvalho%2C%20Pediatra%2C%20Gastropediatria%20e%20Neonatologia!5e0!3m2!1spt-BR!2sbr!4v1778686234937!5m2!1spt-BR!2sbr"
+                            width="600"
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            id="consultorio"
+                            href="#consultorio"></iframe>
+                        </iframe>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <small>
-                    © 2026 Edifício Connect Work - Todos os direitos reservados | Desenvolvido por Hiram Simões Cobuci
+                    © 2026 Dra Janaina Salgado - Todos os direitos reservados
                 </small>
             </div>
+
         </footer>
+        {% endblock %}
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    {% block extra_scripts %}{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+{% block extra_scripts %}{% endblock %}
 
 </body>
+
 </html>
