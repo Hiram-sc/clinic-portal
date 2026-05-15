@@ -35,9 +35,6 @@ def home(request):
 def para_pais(request):
     return render(request, 'home/para_pais.html')
 
-def contato(request):
-    return render(request, 'home/contato.html')
-
 def agendar(request):
     return render(request, 'home/agendar_consulta.html')
 
