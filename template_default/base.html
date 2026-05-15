@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,6 +11,9 @@
     <meta name="keywords" content="gastropediatra, pediatra, gastroenterologia infantil">
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="{% static 'home/icons/icon/icon-drajanaina.png' %}">
+    
     <!-- Open Graph (Whatsapp, Telegram, Facebook, etc)-->
      <meta property="og:title" content="Dra. Janaina Salgado - Gastropediatra">
      <meta property="og:description" content="Atendimento em gastropediatria em Campos dos Goytacazes - RJ">
@@ -355,6 +359,18 @@
                                 <span class="contact-info">@drajanainasalgado</span>
                             </div>
                         </li>
+                        
+                        <li class="contact-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            
+                            <div class="contact-content">
+                                <div class="contact-header">
+                                    <p>Email</p>
+                                </div>
+                                
+                                <span class="contact-info">salgadocarvalhojanaina@gmail.com</span>
+                            </div>
+                        </li>
         
                     </ul>
                 </div>
@@ -381,20 +397,30 @@
                     <h5 class="footer-title">Endereço</h5>
 
                     <div class="footer-map">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.465427355266!2d-41.327842625086966!3d-21.76224069797056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdd55b9ef2ad39%3A0x83eadb115cc75fd6!2sDra.%20Janaina%20Salgado%20Carvalho%2C%20Pediatra%2C%20Gastropediatria%20e%20Neonatologia!5e0!3m2!1spt-BR!2sbr!4v1778686234937!5m2!1spt-BR!2sbr"
-                            width="600"
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            id="consultorio"
-                            href="#consultorio"></iframe>
-                        </iframe>
+
+                        <!-- Form Localization -->
+                        <form method="GET" novalidate>
+                            <div class="footer-form-map">
+
+                            </div>
+                        </form>
+                        
+                        <div class="map">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.465427355266!2d-41.327842625086966!3d-21.76224069797056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdd55b9ef2ad39%3A0x83eadb115cc75fd6!2sDra.%20Janaina%20Salgado%20Carvalho%2C%20Pediatra%2C%20Gastropediatria%20e%20Neonatologia!5e0!3m2!1spt-BR!2sbr!4v1778686234937!5m2!1spt-BR!2sbr"
+                                width="600"
+                                height="450" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                id="consultorio">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endblock %}
 
             <div class="footer-bottom">
                 <small>
@@ -403,7 +429,6 @@
             </div>
 
         </footer>
-        {% endblock %}
 
     </div>
 
