@@ -160,3 +160,25 @@
 {% block footer %}
 
 {% endblock %}
+
+{% block extra_scripts %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const telefone = document.getElementById("id_telefone")
+
+    if (telefone) {
+        IMask(telefone, {
+            mask: [
+                { mask : "(00) 0000-0000"},
+                { mask : "(00) 00000-0000"}
+            ]
+        })
+    }
+})
+
+</script>
+
+{% endblock %}
