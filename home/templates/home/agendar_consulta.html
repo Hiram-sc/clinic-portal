@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %} Dra. Janaina Salgado - Gastropediatra | Agendamento {% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+
+    .section-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: var(--nav-height);
+        background-color: aliceblue;
+        min-height: 100vh;
+    }
+
+    .container-form-consultation {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        max-width: 420px;
+        padding: 50px;
+        border-radius: 26px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        background-color: #FFF;
+    }
+
+    .form-consultation {
+        width: 100%;
+    }
+
+    .form-content {
+        width: 100%;
+    }
+
+    .form-content input{
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #DDD;
+        border-radius: 8px;
+        background-color: #f4f6f8;
+        font-size: 16px;
+        outline: none;
+        transition: 0.2s;
+    }
+
+    .form-content input:focus {
+        background-color: #FFF;
+        border-color: var(--color-accent-primary);
+        box-shadow: 0 4px 8px rgba(213, 147, 147, 0.3);
+    }
+
+    .form-error {
+        color: #d32f2f;
+        margin-top: 6px;
+        font-size: 14px;
+    }
+
+    .form-error ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .btn-form-whatsapp {
+        width: 100%;
+    }
+
+    .btn-link-style {
+        width: 100%;
+        padding: 14px;
+        color: #FFF;
+        background-color: #0c8f54;
+        border: 1px solid #DDD;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.6s ease;
+    }
+
+    .btn-link-style:hover {
+        background-color: #096c3f;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Form Whatsapp -->
+<section class="section-form">
+    <form method="post" novalidate class="container-form-consultation">
+        {% csrf_token %}
+        
+        {{ form.non_field_errors }}
+
+        <div class="form-consultation">
+            <div class="form-content">
+                    {{ form.responsavel }}
+
+                {% if form.responsavel.errors %}
+                    <div class="form-error">
+                        {{ form.responsavel.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="form-consultation">
+            <div class="form-content">
+                {{ form.paciente }}
+
+                {% if form.paciente.errors %}
+                    <div class="form-error">
+                        {{ form.paciente.errors }}
+                    </div> 
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="form-consultation">
+            <div class="form-content">
+                {{ form.idade }}
+
+                {% if form.idade.errors %}
+                    <div class="form-error">
+                        {{ form.idade.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="form-consultation">
+            <div class="form-content">
+                {{ form.telefone }}
+
+                {% if form.telefone.errors %}
+                    <div class="form-error">
+                        {{ form.telefone.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="btn-form-whatsapp">
+            <button type="submit" class="btn-link-style">
+                Enviar para Whatsapp
+            </button>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

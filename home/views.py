@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from urllib.parse import quote
+from home.forms import AgendarForm
 
 def home(request):
 
@@ -36,6 +38,30 @@ def para_pais(request):
     return render(request, 'home/para_pais.html')
 
 def agendar(request):
-    return render(request, 'home/agendar_consulta.html')
+    if request.method == 'POST':
+        form = AgendarForm(request.POST)
+
+        if form.is_valid():
+            responsavel = form.cleaned_data['responsavel']
+            paciente = form.cleaned_data['paciente']
+            idade = form.cleaned_data['idade']
+            telefone = form.cleaned_data['telefone']
+
+            mensagem = quote(
+                f"""
+                    Olá! Meu nome é {responsavel}. 
+                    Gostaria de agendar uma consulta para o {paciente} de {idade} anos. 
+                    Meu telefone: {telefone} 
+                """
+            )
+
+            return redirect(f"https://wa.me/5522999104009?text={mensagem}")
+
+    else:
+        form = AgendarForm()
+
+    return render(request, 'home/agendar_consulta.html', {
+        'form' : form
+    })
 
 
