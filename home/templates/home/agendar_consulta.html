@@ -36,7 +36,14 @@
         width: 100%;
     }
 
-    .form-content input{
+    .text-form-content {
+        font-size: 16px;
+        font-weight: 500;
+        color: #90a1b9;
+        margin-left: 6px;        
+    }
+
+    .form-input{
         width: 100%;
         padding: 14px 16px;
         border: 1px solid #DDD;
@@ -47,15 +54,17 @@
         transition: 0.2s;
     }
 
-    .form-content input:focus {
+    .form-input:focus {
         background-color: #FFF;
         border-color: var(--color-accent-primary);
         box-shadow: 0 4px 8px rgba(213, 147, 147, 0.3);
+        outline: none;
     }
 
     .form-error {
         color: #d32f2f;
         margin-top: 6px;
+        margin-left: 6px;
         font-size: 14px;
     }
 
@@ -101,6 +110,9 @@
 
         <div class="form-consultation">
             <div class="form-content">
+                <label class="text-form-content">
+                    Responsável:
+                </label>
                     {{ form.responsavel }}
 
                 {% if form.responsavel.errors %}
@@ -113,6 +125,9 @@
         
         <div class="form-consultation">
             <div class="form-content">
+                <label class="text-form-content">
+                    Paciente:
+                </label>
                 {{ form.paciente }}
 
                 {% if form.paciente.errors %}
@@ -125,11 +140,14 @@
         
         <div class="form-consultation">
             <div class="form-content">
-                {{ form.idade }}
+                <label class="text-form-content">
+                    Data de nascimento:
+                </label>
+                {{ form.data_nascimento }}
 
-                {% if form.idade.errors %}
+                {% if form.data_nascimento.errors %}
                     <div class="form-error">
-                        {{ form.idade.errors }}
+                        {{ form.data_nascimento.errors }}
                     </div>
                 {% endif %}
             </div>
@@ -137,6 +155,9 @@
         
         <div class="form-consultation">
             <div class="form-content">
+                <label class="text-form-content">
+                    Telefone:
+                </label>
                 {{ form.telefone }}
 
                 {% if form.telefone.errors %}
@@ -167,7 +188,8 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    const telefone = document.getElementById("id_telefone")
+    // DOM Elements
+    const telefone = document.getElementById("id_telefone");
 
     if (telefone) {
         IMask(telefone, {
@@ -175,9 +197,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 { mask : "(00) 0000-0000"},
                 { mask : "(00) 00000-0000"}
             ]
-        })
+        });
     }
-})
+});
 
 </script>
 
