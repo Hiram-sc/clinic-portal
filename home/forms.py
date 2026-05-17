@@ -1,9 +1,15 @@
 from django import forms
+from datetime import date
+from dateutil.relativedelta import relativedelta
 from django.core.exceptions import ValidationError
 
+"""
+Trocar form de idade para data de nascimento e implementar endereço.
+"""
 class AgendarForm(forms.Form):
     responsavel = forms.CharField(
         widget=forms.TextInput(attrs={
+            'class': 'form-input',
             'placeholder': 'Nome do responsável'
         }),
         max_length=150, 
@@ -16,6 +22,7 @@ class AgendarForm(forms.Form):
 
     paciente = forms.CharField(
         widget=forms.TextInput(attrs={
+            'class': 'form-input',
             'placeholder': 'Nome do paciente'
         }),
         label="Paciente",
@@ -26,13 +33,14 @@ class AgendarForm(forms.Form):
         }
     )
 
-    idade = forms.IntegerField(
-        widget=forms.NumberInput(attrs={
-            'placeholder': 'Idade do paciente'
+    data_nascimento = forms.DateField(
+        widget=forms.DateInput(attrs={
+            'id': 'id_data_nascimento',
+            'class': 'form-input',
+            'placeholder': 'dd/mm/aaaa'
         }),
-        label="Idade",
-        min_value=0,
-        max_value=120,
+        label="Data de nascimento",
+        input_formats=['%d/%m/%Y'],
         required=True,
         error_messages= {
             'required': 'Preencha este campo.'
@@ -41,7 +49,8 @@ class AgendarForm(forms.Form):
 
     telefone = forms.CharField(
         widget=forms.TextInput(attrs={
-            'type': 'tel',
+            'id': 'id_telefone',
+            'class': 'form-input',
             'placeholder': '(00) 00000-0000'
         }),
         label="Whatsapp",
@@ -73,15 +82,24 @@ class AgendarForm(forms.Form):
         
         return paciente
     
-    def clean_idade(self):
-        idade = self.cleaned_data.get('idade')
+    def clean_data_nascimento(self):
+        data_nascimento = self.cleaned_data.get('data_nascimento')
 
-        if idade is None:
+        hoje = date.today() 
+
+        if data_nascimento > hoje:
             raise ValidationError(
-                'Informe a idade do paciente.'
+                "Data de nascimento fora do intervalo permitido."
+            )
+        
+        limite_18 = hoje - relativedelta(years=18)
+
+        if data_nascimento < limite_18:
+            raise ValidationError(
+                "Atendimento apenas para menores de 18 anos."
             )
 
-        return idade
+        return data_nascimento
     
     def clean_telefone(self):
         telefone = (self.cleaned_data.get('telefone') or '').strip()

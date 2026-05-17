@@ -44,14 +44,19 @@ def agendar(request):
         if form.is_valid():
             responsavel = form.cleaned_data['responsavel']
             paciente = form.cleaned_data['paciente']
-            idade = form.cleaned_data['idade']
+            data_nascimento = form.cleaned_data['data_nascimento']
             telefone = form.cleaned_data['telefone']
+
+            data_nascimento = data_nascimento.strftime('%d/%m/%Y')
 
             mensagem = quote(
                 f"""
-                    Olá! Meu nome é {responsavel}. 
-                    Gostaria de agendar uma consulta para o {paciente} de {idade} anos. 
-                    Meu telefone: {telefone} 
+                Olá! 👋\n
+                Sou {responsavel} e gostaria de agendar uma consulta.\n\n
+                Paciente: {paciente}; \n
+                Data de nascimento: {data_nascimento}.\n
+                Telefone: {telefone}.\n\n
+                Aguardo retorno, obrigado(a)! 😊
                 """
             )
 
