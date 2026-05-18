@@ -50,17 +50,15 @@ def agendar(request):
             data_nascimento = data_nascimento.strftime('%d/%m/%Y')
 
             mensagem = quote(
-                f"""
-                Olá! 👋\n
-                Sou {responsavel} e gostaria de agendar uma consulta.\n\n
-                Paciente: {paciente}; \n
-                Data de nascimento: {data_nascimento}.\n
-                Telefone: {telefone}.\n\n
-                Aguardo retorno, obrigado(a)! 😊
-                """
+                f"Olá! 👋\n\n"
+                f"Me chamo {responsavel} e gostaria de agendar uma consulta com a Dra. Janaína.\n\n"
+                f"Paciente: {paciente}\n"
+                f"Data de nascimento: {data_nascimento}\n"
+                f"Telefone para contato: {telefone}\n\n"
+                f"Fico no aguardo de um retorno. Muito obrigado(a)! 😊"
             )
 
-            return redirect(f"https://wa.me/5522999104009?text={mensagem}")
+            return redirect(f"https://api.whatsapp.com/send?phone=5522999104009&text={mensagem}")
 
     else:
         form = AgendarForm()

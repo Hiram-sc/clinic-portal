@@ -1,6 +1,7 @@
 from django import forms
 from datetime import date
 from dateutil.relativedelta import relativedelta
+import re
 from django.core.exceptions import ValidationError
 
 """
@@ -89,14 +90,14 @@ class AgendarForm(forms.Form):
 
         if data_nascimento > hoje:
             raise ValidationError(
-                "Data de nascimento fora do intervalo permitido."
+                'Data de nascimento fora do intervalo permitido.'
             )
         
         limite_18 = hoje - relativedelta(years=18)
 
         if data_nascimento < limite_18:
             raise ValidationError(
-                "Atendimento apenas para menores de 18 anos."
+                'Atendimento apenas para menores de 18 anos.'
             )
 
         return data_nascimento
@@ -104,12 +105,24 @@ class AgendarForm(forms.Form):
     def clean_telefone(self):
         telefone = (self.cleaned_data.get('telefone') or '').strip()
 
-        if len(telefone) < 10 or not telefone.replace('(', '').replace(')', '').replace('-', '').replace(' ', '').isdigit():
+        telefone_limpo = re.sub(r'\D', '', telefone)
+
+        if len(telefone_limpo) < 10 or len(telefone_limpo) > 11:
             raise ValidationError(
-                'O número deve conter pelo menos 10 dígitos e estar no formato (00) 00000-0000'
+                'O número deve conter pelo menos 10 dígitos e estar no formato (00) 00000-0000.'
             )
         
-        return telefone
+        if len(telefone_limpo) == 11 and telefone_limpo[2] != '9':
+            raise ValidationError(
+                'Número de telefone inválido.'
+                )
+        
+        if telefone_limpo == telefone_limpo[0] * len(telefone_limpo):
+            raise ValidationError(
+                'Número de telefone inválido.'
+            )
+        
+        return telefone_limpo
         
 
         
