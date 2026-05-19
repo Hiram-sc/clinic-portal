@@ -15,7 +15,7 @@
         justify-content: center;
         padding-top: var(--nav-height);
         padding-bottom: 40px;
-        background-color: aliceblue;
+        background-color: rgb(240, 236, 236);
         min-height: 100vh;
     }
 
@@ -209,6 +209,36 @@
                 {% endif %}
             </div>
         </div>
+        
+        <div class="form-consultation">
+            <div class="form-content">
+                <label class="text-form-content">
+                    Cidade:
+                </label>
+                {{ form.cidade }}
+
+                {% if form.cidade.errors %}
+                    <div class="form-error">
+                        {{ form.cidade.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="form-consultation">
+            <div class="form-content">
+                <label class="text-form-content">
+                    Bairro:
+                </label>
+                {{ form.bairro }}
+
+                {% if form.bairro.errors %}
+                    <div class="form-error">
+                        {{ form.bairro.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
 
         <div class="btn-form-whatsapp">
             <button type="submit" class="btn-link-style">
@@ -231,9 +261,30 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // DOM Elements
+    const campos = document.querySelectorAll("input")
     const data_nascimento = document.getElementById("id_data_nascimento");
     const telefone = document.getElementById("id_telefone");
 
+    campos.forEach((campo, index) => {
+
+        campo.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                if (!campo.checkValidity()) return;
+
+                const proximoCampo = campos[index + 1];
+
+                if (proximoCampo) {
+                    proximoCampo.focus();
+                }
+            }
+        });
+    });
+
+    // Campo Data
     if (data_nascimento) {
 
         // Limite de ano de nascimento (menores de 18 anos)
@@ -279,6 +330,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Campo Telefone
     if (telefone) {
         IMask(telefone, {
             mask: [

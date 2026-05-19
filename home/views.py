@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect
 from urllib.parse import quote
+
+from django.shortcuts import render, redirect
+
 from home.forms import AgendarForm
 
 def home(request):
@@ -46,6 +48,8 @@ def agendar(request):
             paciente = form.cleaned_data['paciente']
             data_nascimento = form.cleaned_data['data_nascimento']
             telefone = form.cleaned_data['telefone']
+            cidade = form.cleaned_data['cidade']
+            bairro = form.cleaned_data['bairro']
 
             data_nascimento = data_nascimento.strftime('%d/%m/%Y')
 
@@ -54,7 +58,8 @@ def agendar(request):
                 f"Me chamo {responsavel} e gostaria de agendar uma consulta com a Dra. Janaína.\n\n"
                 f"Paciente: {paciente}\n"
                 f"Data de nascimento: {data_nascimento}\n"
-                f"Telefone para contato: {telefone}\n\n"
+                f"Telefone para contato: {telefone}\n"
+                f"Localidade: {bairro} - {cidade}\n\n"
                 f"Fico no aguardo de um retorno. Muito obrigado(a)! 😊"
             )
 
