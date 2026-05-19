@@ -52,6 +52,7 @@
     .title-form-consultation {
         text-align: center;
         font-size: 28px;
+        color: rgb(193, 186, 186);
         line-height: 1.1;
         font-weight: 600;
     }
@@ -91,6 +92,30 @@
         border: 2px solid #d27177;
         box-shadow: 0 4px 8px rgba(213, 147, 147, 0.3);
         outline: none;
+    }
+
+    .select-wrapper {
+        position: relative;
+    }
+
+    .select-arrow {
+        position: absolute;
+        top: 50%;
+        color: #333; 
+        right: 16px;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease; 
+    }
+
+    .select-wrapper.active .select-arrow {
+        transform: translateY(-50%) rotate(180deg);
+    }
+    
+    .input-selection {
+        appearance: none;
+        color: #333; 
+        -webkit-appearance: none;
+        -moz-appearance: none;
     }
 
     .form-error {
@@ -183,6 +208,24 @@
         <div class="form-consultation">
             <div class="form-content">
                 <label class="text-form-content">
+                    Parentesco:
+                </label>
+                <div class="select-wrapper">
+                    {{ form.parentesco }}
+                    <i class="fa-solid fa-angle-down select-arrow"></i>
+                </div>
+
+                {% if form.parentesco.errors %}
+                    <div class="form-error">
+                        {{ form.parentesco.errors }}
+                    </div> 
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="form-consultation">
+            <div class="form-content">
+                <label class="text-form-content">
                     Data de nascimento:
                 </label>
                 {{ form.data_nascimento }}
@@ -261,10 +304,13 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // DOM Elements
-    const campos = document.querySelectorAll("input")
+    const campos = document.querySelectorAll("input");
+    const select = document.querySelector(".input-selection");
+    const wrapper = document.querySelector(".select-wrapper");
     const data_nascimento = document.getElementById("id_data_nascimento");
     const telefone = document.getElementById("id_telefone");
 
+    // Function Enter
     campos.forEach((campo, index) => {
 
         campo.addEventListener("keydown", function(event) {
@@ -273,6 +319,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 event.preventDefault();
 
+                // Impede passar de primeira, mas não valida 
                 if (!campo.checkValidity()) return;
 
                 const proximoCampo = campos[index + 1];
@@ -282,6 +329,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
         });
+    });
+
+    // Campo Select
+    select.addEventListener('focus', () => {
+        wrapper.classList.add('active');
+    });
+
+    select.addEventListener('blur', () => {
+        wrapper.classList.remove('active');
     });
 
     // Campo Data

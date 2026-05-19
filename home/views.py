@@ -46,6 +46,10 @@ def agendar(request):
         if form.is_valid():
             responsavel = form.cleaned_data['responsavel']
             paciente = form.cleaned_data['paciente']
+
+            grau_parentesco = form.cleaned_data['parentesco']
+            parentesco = dict(form.fields['parentesco'].choices).get(grau_parentesco)
+
             data_nascimento = form.cleaned_data['data_nascimento']
             telefone = form.cleaned_data['telefone']
             cidade = form.cleaned_data['cidade']
@@ -57,9 +61,10 @@ def agendar(request):
                 f"Olá! 👋\n\n"
                 f"Me chamo {responsavel} e gostaria de agendar uma consulta com a Dra. Janaína.\n\n"
                 f"Paciente: {paciente}\n"
+                f"Parentesco: {parentesco}\n"
                 f"Data de nascimento: {data_nascimento}\n"
                 f"Telefone para contato: {telefone}\n"
-                f"Localidade: {bairro} - {cidade}\n\n"
+                f"Endereço: {bairro} - {cidade}\n\n"
                 f"Fico no aguardo de um retorno. Muito obrigado(a)! 😊"
             )
 

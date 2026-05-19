@@ -10,6 +10,18 @@ from django.core.exceptions import ValidationError
 Trocar form de idade para data de nascimento e implementar endereço.
 """
 class AgendarForm(forms.Form):
+    
+    PARENTESCO_CHOICES = [
+        ('', 'Selecione'),
+        ('mae', 'Mãe'),
+        ('pai', 'Pai'),
+        ('avo', 'Avô / Avó'),
+        ('tia', 'Tio(a)'),
+        ('irmao', 'Irmão(a)'),
+        ('responsavel_legal', 'Responsável Legal'),
+        ('outro', 'Outro')
+    ]
+
     responsavel = forms.CharField(
         widget=forms.TextInput(attrs={
             'class': 'form-input input-name',
@@ -90,6 +102,19 @@ class AgendarForm(forms.Form):
         }
     )
 
+    parentesco = forms.ChoiceField(
+        choices=PARENTESCO_CHOICES,
+        widget=forms.Select(attrs={
+            'class': 'form-input input-selection',
+        }),
+        label="Parentesco",
+        required=True,
+        error_messages= {
+            'required': 'Preencha este campo.'
+        }
+    )
+
+
     def clean_responsavel(self):
         responsavel = (self.cleaned_data.get('responsavel') or '').strip()
 
@@ -122,7 +147,7 @@ class AgendarForm(forms.Form):
                 'Nome inválido.'
             )
         
-        return paciente
+        return paciente    
     
     def clean_data_nascimento(self):
         data_nascimento = self.cleaned_data.get('data_nascimento')
