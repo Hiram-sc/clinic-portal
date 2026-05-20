@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Gastropediatria | Início {% endblock %}
+{% block title %} Dra. Janaina Salgado - Gastropediatra | Início {% endblock %}
 
 {% block extra_css %}
 
@@ -17,17 +17,17 @@
 
         <div class="container-hero-text">
 
-        <div class="box-highlight">
-            <i class="fa-regular fa-circle-check icon-over" style="color: rgb(246, 130, 138);"></i>
-            <p>Membro da Sociedade Brasileira de Pediatria</p>
-        </div>    
+            <div class="box-highlight">
+                <i class="fa-regular fa-circle-check icon-over" style="color: rgb(246, 130, 138);"></i>
+                <p>Membro da Sociedade Brasileira de Pediatria</p>
+            </div>    
             
-            <h2 class="hero-title">
-                CUIDANDO DO SEU FILHO
+            <h1 class="hero-title">
+                Cuidando do seu filho
                 <span class="break">
-                    COM AMOR E <span class="text-highlight">ESPECIALIDADE</span>
+                    com <span class="text-highlight">amor e especialidade</span>
                 </span>
-            </h2>
+            </h1>
 
             <p class="hero-text">
                 Gastroenterologia Pediátrica dedicada ao bem-estar digestivo
@@ -65,13 +65,13 @@
 <section class="card-section">
     <div class="title-card-section">
         <h3 class="title-primary">Como podemos ajudar seu filho?</h3>
-        <p>Atendimento focado no diagnóstico, tratamento e orientação nutricional infantil.</p>
+        <p class="description">Atendimento focado no diagnóstico, tratamento e orientação nutricional infantil.</p>
     </div>
     
     <div class="container-card">        
         <div class="column-card card">
             <div class="column-card-header">
-                <img src="{% static 'home/svg/stomach.svg' %}">
+                <img src="{% static 'home/icons/favicon/stomach.svg' %}">
             </div>
 
             <h2 class="title-card">Problemas Digestivos</h2>
@@ -84,7 +84,7 @@
 
         <div class="column-card card">
             <div class="column-card-header">
-                <img src="{% static 'home/svg/plan.svg' %}">
+                <img src="{% static 'home/icons/favicon/plan.svg' %}">
             </div>
 
             <h2 class="title-card">Acompanhamento Nutricional</h2>
@@ -97,7 +97,7 @@
         
         <div class="column-card card">
             <div class="column-card-header">
-                <img src="{% static 'home/svg/healthcare.svg' %}">
+                <img src="{% static 'home/icons/favicon/healthcare.svg' %}">
             </div>
 
             <h2 class="title-card">Atenção Integral e Cuidado</h2>
@@ -110,7 +110,7 @@
         
         <div class="column-card card">
             <div class="column-card-header">
-                <img src="{% static 'home/svg/check-up.svg' %}">
+                <img src="{% static 'home/icons/favicon/check-up.svg' %}">
             </div>
 
             <h2 class="title-card">Acompanhamento do Crescimento</h2>
@@ -123,7 +123,7 @@
         
         <div class="column-card card">
             <div class="column-card-header">
-                <img src="{% static 'home/svg/digestive.svg' %}">
+                <img src="{% static 'home/icons/favicon/digestive.svg' %}">
             </div>
 
             <h2 class="title-card">Prevenção em Saúde Digestiva</h2>
@@ -193,7 +193,7 @@
         
         <div class="card-informative-over">
             <div class="info-item">
-                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-user"></i>
                 
                 <div class="info-text">
                     <span class="value">10+ anos</span>
@@ -210,6 +210,7 @@
             </div>
 
             <div class="info-item">
+                <i class="fa-solid fa-heart-pulse"></i>
                 
                 <div class="info-text">
                     <span class="value">Atendimento humanizado</span>
@@ -251,10 +252,13 @@
 </section>
 
 <section class="section-carousel" id="depoimentos">
-    <h3 class="title-primary">
-        Depoimentos
-    </h3>
-    
+    <div class="title-carousel">
+        <h3 class="title-primary">
+            Depoimentos
+        </h3>
+        <p class="description">Relatos de pais e responsáveis de pacientes acompanhados ao longo do tratamento.</p>
+    </div>
+
     <div class="carousel-container">
         <div class="carousel-viewport">
             <div class="carousel-track" id="carouselTrack">
@@ -280,9 +284,9 @@
                 </div>
 
                 {% endfor %}
+            
             </div>
         </div>
-
     </div>
 </section>
 
