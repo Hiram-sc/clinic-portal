@@ -1,0 +1,597 @@
+{% extends "base.html" %}
+
+{% block title %} Dra. Janaina Salgado - Gastropediatra | Para Pais {% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+    /* Section Hero */
+    
+    .hero-guide {
+        padding-top: var(--nav-height);
+        padding-bottom: 80px;
+        background-color: rgb(240, 236, 236);
+    }
+
+    .container-hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 200px;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    .container-hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        max-width: 700px;
+    }
+
+    .paragraph {
+        text-align: justify;
+        max-width: 520px;
+        font-size: 19px;
+        line-height: 1.5;
+        letter-spacing: 0.1px;
+    }
+
+    .hero-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 490px;
+    }
+
+    .hero-tags span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4F6657;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        padding: 8px 6px;
+        background: rgba(98, 143, 180, 0.08);
+        border: 1px solid #DDD;
+        border-radius: 8px;
+        cursor: default;
+        transition: 0.3s ease;
+    }
+
+    .hero-tags span:hover {
+        background: rgba(95, 120, 105, 0.08);
+        transform: translateY(-2px);
+    }
+
+    .hero-note {
+        margin-top: 12px;
+        font-size: 12px;
+        color: rgba(40, 40, 40, 0.68);
+        text-align: left;
+    }
+
+    .hero-card {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        border: 2px solid rgba(0,0,0,0.06);
+        border-radius: 20px;
+        background: rgba(255,255,255,0.7);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        transform: rotate(2deg) translateY(6px);
+        transition: 
+            transform 0.45s cubic-bezier(.2,.8,.2,1),
+            border-color 0.45s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .hero-card:hover {
+        transform: rotate(0deg) translateY(0px);
+        border-color: rgba(0,0,0,0.2);
+    }
+
+    .hero-card-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        border-bottom: 1px solid #DDD;
+        padding: 24px 8px;
+    }
+
+    .hero-card-content:last-child {
+        border-bottom: none;
+    }
+
+    .hero-card-content p {
+        margin: 0;
+        line-height: 1;
+    }
+
+    .icon-mini-card {
+        font-size: 26px;
+    }
+
+    /* Section Dicas de Saúde */
+
+    .section-tips {
+        padding-top: 120px;
+        padding-bottom: 90px;
+    }
+    
+    .tips-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin: 0 auto;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 36px;
+        font-weight: 700;
+    }
+
+    .text-label {
+        width: fit-content;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgb(224, 215, 215);
+        border: 1px solid rgb(224, 201, 201);
+        color: var(--color-nav-link);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0 auto 18px auto;
+    }
+
+    .title-primary {
+        color: #282727;
+        font-size: 40px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .header-content p {
+        max-width: 540px;
+        font-size: 18px;
+        margin: 0 auto;
+        
+    }
+
+    .tips-content {
+        max-width: 1200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .tips-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: start;
+        max-width: 360px;
+        height: 260px;
+        padding: 20px 30px;
+        background-color: #fff;
+        border: 1px solid #ece9e9;
+        border-radius: 20px;
+        transition: 0.3s ease;
+    }
+
+    .tips-card:hover {
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        transform: translateY(-6px);
+    }
+
+    .icon-card {
+        font-size: 36px;
+    }
+
+    .card-content-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    .card-content-text h3 {
+        font-size: 26px;
+        font-weight: 600;
+    }
+
+    .card-content-text p {
+        
+    }
+
+    /* Faq */
+
+    .section-faq {
+        padding-top: 100px;
+        padding-bottom: var(--nav-height);
+    }
+
+    .faq-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-header {
+        padding-bottom: 30px;
+    }
+
+    .title-primary span{
+        color: var(--color-nav-link);
+    }
+
+    .faq-item {
+        
+    }
+
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .faq-question {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px;
+        background: transparent;
+        border: 1px solid #DDD;
+        border-radius: 20px;
+    }
+
+    .text-style {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .faq-icon {
+        font-size: 14px;
+        color: rgb(193, 186, 186);
+        transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon{
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        margin-left: 10px;
+        max-width: 570px;
+        transition: max-height .4s ease, margin-top .4s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+        margin-top: 16px;
+    }
+
+    .faq-answer p {
+        
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-guide">
+    <div class="container-hero">
+
+        <div class="container-hero-text">
+            <h2 class="title-primary">Saúde infantil
+                <span>na prática</span>
+            </h2>
+            <p class="paragraph">
+                Reunimos dúvidas frequentes, orientações
+                e conteúdos educativos para apoiar famílias
+                com mais segurança e tranquilidade.
+            </p>
+
+            <div class="hero-tags">
+                <span>APLV</span>
+                <span>Digestão</span>
+                <span>Rotina alimentar</span>
+                <span>Leitura de rótulos</span>
+                <span>Desenvolvimento</span>
+                <span>Introdução alimentar</span>
+            </div>
+
+            <p class="hero-note">
+                Materiais educativos feitos para apoiar mães, pais e responsáveis.
+            </p>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-card-content">
+                <div class="icon-mini-card">📚</div>
+                <p>Conteúdos educativos</p>
+            </div>
+            
+            <div class="hero-card-content">
+                <div class="icon-mini-card">💛</div>
+                <p>Orientações acolhedoras</p>
+            </div>
+            
+            <div class="hero-card-content">
+                <div class="icon-mini-card">❓</div>
+                <p>Dúvidas frequentes</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section-tips">
+    <div class="tips-container">
+        <div class="header-content">
+            <div class="text-label">
+                Dicas
+            </div>
+            <h2 class="title-primary">Guias de saúde
+                <span>para pais</span>
+            </h2>
+            
+            <p>Orientações simples para ajudar no cuidado e entendimento da saúde infantil</p>
+        </div>
+
+        <div class="tips-content">
+
+            <div class="tips-card">
+                <div class="icon-card">
+                    🏷️
+                </div>
+
+                <div class="card-content-text">
+                    <h3>Identificar leite nos rótulos</h3>
+                    
+                    <p class="text-style">
+                        Caseína, whey e soro do leite indicam presença de leite
+                    </p>
+                </div>
+            </div>
+
+            <div class="tips-card">
+                <div class="icon-card">
+                    ⚠️
+                </div>
+                
+                <div class="card-content-text">
+                    <h3>“Sem lactose” não é APLV</h3>
+                    
+                    <p>
+                        Produtos sem lactose ainda podem conter proteína do leite
+                    </p>
+                </div>
+            </div>
+
+            <div class="tips-card">
+                <div class="icon-card">
+                    📝
+                </div>
+
+                <div class="card-content-text">
+                    <h3>Diário alimentar pode ajudar</h3>
+                    
+                    <p>
+                        Registrar refeições ajuda a identificar sintomas
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tips-card">
+                <div class="icon-card">
+                    🍽️
+                </div>
+
+                <div class="card-content-text">
+                    <h3>Pequenos contatos importam</h3>
+                    
+                    <p>
+                        Utensílios compartilhados podem causar reações
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tips-card">
+                <div class="icon-card">
+                    👶
+                </div>
+
+                <div class="card-content-text">
+                    <h3>Nem todo refluxo infantil é preocupante</h3>
+                    
+                    <p>
+                        Pode ser comum, mas alguns sinais exigem atenção
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tips-card">
+                <div class="icon-card">
+                    🍎
+                </div>
+
+                <div class="card-content-text">
+                    <h3>Restrição Alimentar sem peso</h3>
+                    
+                    <p>
+                        Adaptação alimentar pode ser leve e equilibrada
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Faq -->
+
+<section class="section-faq">
+    
+    <div class="faq-container">
+        <div class="faq-header">
+            <div class="text-label">
+                Dúvidas Frequentes
+            </div>
+            <h3 class="title-primary">Perguntas 
+                <span>
+                    Frequentes
+                </span>
+            </h3>
+        </div>
+        
+        <div class="faq-list">
+
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    <span class="text-style">Meu filho tem intestino preso. Quando devo me preocupar?</span>
+                    <span class="faq-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </button>
+    
+                <div class="faq-answer">
+                    <p>
+                        Fezes endurecidas, dor ao evacuar e longos períodos
+                        sem evacuação podem indicar constipação intestinal.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    <span class="text-style">O que é APLV?</span>
+                    <span class="faq-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        A APLV acontece quando o organismo entende a 
+                        proteína do leite de vaca como uma substância estranha,
+                        causando reações no corpo da criança.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    <span class="text-style">Qual a diferença entre APLV e intolerância à lactose?</span>
+                    <span class="faq-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        A APLV é uma reação às proteínas do leite.
+                        Já a intolerância à lactose envolve dificuldade
+                        em digerir o açúcar do leite.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    <span>Todo refluxo infantil é preocupante?</span>
+                    <span class="faq-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Nem sempre. Porém, refluxo frequente associado
+                        a desconforto ou dificuldade para ganhar peso
+                        merece investigação
+                    </p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    <span class="text-style">Produtos sem lactose são seguros para crianças com APLV?</span>
+                    <span class="faq-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Nem sempre. Mesmo sem lactose, o alimento ainda
+                        pode conter proteínas do leite
+                    </p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    <span class="text-style">Quando devo procurar um gastropediatra?</span>
+                    <span class="faq-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Sintomas persistentes como dor abdominal,
+                        refluxo, seletividade alimentar e alterações
+                        intestinais merecem avaliação especializada.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+{% block extra_scripts %}
+
+<script>
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+</script>
+
+{% endblock %}
