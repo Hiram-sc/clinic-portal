@@ -15,33 +15,32 @@
 <section class="hero">
     <div class="container-hero">
 
-        <div class="container-hero-text">
-
-            <div class="box-highlight">
-                <i class="fa-regular fa-circle-check icon-over" style="color: rgb(246, 130, 138);"></i>
-                <p>Membro da Sociedade Brasileira de Pediatria</p>
-            </div>    
+        <div class="container-hero-text"> 
             
-            <h1 class="hero-title">
-                Cuidando do seu filho
-                <span class="break">
-                    com <span class="text-highlight">amor e especialidade</span>
-                </span>
-            </h1>
+            <div class="hero-content">
 
-            <p class="hero-text">
-                Gastroenterologia Pediátrica dedicada ao bem-estar digestivo
-                <span class="break">e nutricional de bebês e crianças.</span>
-            </p>
+                <h1 class="hero-title">
+                    Cuidando da saúde do seu filho com
+                    <span class="break">
+                        <span class="text-highlight">acolhimento e atenção especializada</span>
+                    </span>
+                </h1>
+                
+                <p class="hero-text">
+                    Orientação e acompanhamento especializado para ajudar famílias
+                    no cuidado digestivo e nutricional de bebês e crianças.
+                </p>
+                
+            </div>
             
-            <div class="hero-btn">
+            <div class="hero-actions">
                 <a href="{% url 'agendar_consulta' %}" class="btn-schedule">
                     <i class="fa-regular fa-calendar"></i>
                     Agende sua Consulta
                 </a>
 
-                <a class="card-btn" 
-                    href="https://instagram.com/hiramsimoes"
+                <a class="btn-instagram btn-instagram-hero" 
+                    href="https://instagram.com/drajanainagastroped"
                     target="_blank"
                     rel="noopener noreferrer">
                     Saiba mais >
@@ -53,208 +52,284 @@
             </p>
 
         </div>
-
-        <img src="{% static 'home/img/drajanainasalgado.webp' %}"
-        alt="Imagem médica Dra. Janaina Salgado em ambiente clínico"  
-        loading="lazy"
-        class="hero-img">
-
+        
     </div>
 </section>
 
 <section class="card-section">
     <div class="title-card-section">
-        <h3 class="title-primary">Como podemos ajudar seu filho?</h3>
-        <p class="description">Atendimento focado no diagnóstico, tratamento e orientação nutricional infantil.</p>
+        <div class="text-label">
+            Atendimentos
+        </div>
+        <h3 class="title-primary">Como podemos
+            <span class="text-highlight">
+                ajudar seu filho?
+            </span>
+            </h3>
+        <p class="description">Atendimento especializado para sintomas digestivos, alimentação infantil e acompanhamento gastroenterológico.</p>
     </div>
     
     <div class="container-card">        
-        <div class="column-card card">
-            <div class="column-card-header">
-                <img src="{% static 'home/icons/favicon/stomach.svg' %}">
+        <div class="service-card">
+            <div class="icon-card">
+                🤢
             </div>
 
-            <h2 class="title-card">Problemas Digestivos</h2>
-            
-            <p class="text-soft">
-                Diagnóstico e tratamento de refluxo, constipação, diarreia, dores abdominais e outros sintomas gastrointestinais em crianças
-            </p>
+            <div class="content-card">
+                <h2 class="title-card">Refluxo e Sintomas Digestivos</h2>
+                
+                <p class="text-soft">
+                    Acompanhamento para refluxo, dores abdominais, constipação e alterações gastrointestinais
+                </p>
+            </div>
             
         </div>
 
-        <div class="column-card card">
-            <div class="column-card-header">
-                <img src="{% static 'home/icons/favicon/plan.svg' %}">
+        <div class="service-card">
+            <div class="icon-card">
+                🩺
             </div>
 
-            <h2 class="title-card">Acompanhamento Nutricional</h2>
-            
-            <p class="text-soft">
-                Orientação nutricional personalizada para promover o crescimento saudável e o desenvolvimento pleno do seu filho
-            </p>
-
+            <div class="content-card">
+                <h2 class="title-card">Avaliação Gastroenterológica</h2>
+                
+                <p class="text-soft">
+                    Investigação cuidadosa para identificar alterações digestivas e sintomas persistentes
+                </p>
+            </div>
+                
         </div>
         
-        <div class="column-card card">
-            <div class="column-card-header">
-                <img src="{% static 'home/icons/favicon/healthcare.svg' %}">
+        <div class="service-card">
+            <div class="icon-card">
+                ❤️
             </div>
-
-            <h2 class="title-card">Atenção Integral e Cuidado</h2>
             
-            <p class="text-soft">
-                Tratamentos direcionados às necessidades individuais de cada criança, promovendo saúde digestiva completa e bem-estar
-            </p>
-        
-        </div>
-        
-        <div class="column-card card">
-            <div class="column-card-header">
-                <img src="{% static 'home/icons/favicon/check-up.svg' %}">
+            <div class="content-card">
+                <h2 class="title-card">Atendimento Individualizado</h2>
+                
+                <p class="text-soft">
+                    Acompanhamento próximo e acolhedor respeitando as necessidades de cada criança
+                </p>
             </div>
-
-            <h2 class="title-card">Acompanhamento do Crescimento</h2>
-            
-            <p class="text-soft">
-                Monitoramento do desenvolvimento físico e nutricional da criança, garantindo crescimento saudável em cada fase da infância.
-            </p>
         
         </div>
         
-        <div class="column-card card">
-            <div class="column-card-header">
-                <img src="{% static 'home/icons/favicon/digestive.svg' %}">
+        <div class="service-card">
+            <div class="icon-card">
+                👶
             </div>
 
-            <h2 class="title-card">Prevenção em Saúde Digestiva</h2>
-            
-            <p class="text-soft">
-                Orientações preventivas para evitar problemas gastrointestinais, promovendo hábitos saudáveis desde os primeiros anos de vida.
-            </p>
+            <div class="content-card">
+                <h2 class="title-card">Desenvolvimento e Crescimento</h2>
+                
+                <p class="text-soft">
+                    Avaliação do desenvolvimento infantil e acompanhamento da saúde em cada fase
+                </p>
+            </div>
+                
+        </div>
         
+        <div class="service-card">
+            <div class="icon-card">
+                🛡️
+            </div>
+
+            <div class="content-card">
+                <h2 class="title-card">Saúde Digestiva e Prevenção</h2>
+                
+                <p class="text-soft">
+                    Orientações para incentivar hábitos saudáveis e prevenir desconfortos digestivos
+                </p>
+            </div>
+                
         </div>
 
-        <div class="btn-column-card card">
-            <h2>Acompanhe conteúdos educativos</h2>
+        <div class="service-card">
+             <div class="icon-card">
+                🧸
+            </div>
 
-            <p>Publicações com orientações práticas sobre saúde digestiva infantil e desenvolvimento.</p>
+            <div class="content-card">
+                <h2 class="title-card">Bem-Estar e Rotina Infantil</h2>
+                
+                <p class="text-soft">
+                    Acompanhamento pensado para oferecer mais conforto e qualidade de vida na infância
+                </p>
+            </div>
 
-            <a class="card-btn" href="https://instagram.com/hiramsimoes" target="_blank" rel="noopener noreferrer">
-                Ver Conteúdos</a>
         </div>
         
     </div>
 </section>
 
-<section class="py-5 over-section" id="sobre">
-    <div class="grid-container-over">
-        <div class="column-over">
-            <h3 class="title-over">
-                Por que escolher
-                <span class="break">a Dra. Janaina?</span>
-            </h3>
+<section class="section-specialized-care">
+    <div class="specialized-care-header">
+        <div class="text-label">
+            Atuação especializada
+        </div>
+        <h3 class="title-primary">
+            Atuação especializada em 
+            <span class="text-highlight">
+                saúde digestiva infantil
+            </span>
+        </h3>
+        <p class="description">
+            Acompanhamento gastroenterológico infantil com foco em acolhimento, desenvolvimento e cuidado individualizado.
+        </p>
+    </div>
 
-            <p class="text-informative-over">
-                Com mais de 10 anos de experiência em gastroenterologia pediátrica,
-                a Dra. Janaina oferece um atendimento personalizado e de qualidade
-                para garantir o bem-estar digestivo e nutricional do seu filho.
-            </p>
-
-            <ul class="container-mini-over">
-                <li class="item-over">
-                    <i class="fa-regular fa-circle-check icon-over"></i>
-                    <p class="item-informative-over">
-                        Experiência e especialização em Gastro Pediatria
-                    </p>
-                </li>
-
-                <li class="item-over"> 
-                    <i class="fa-regular fa-circle-check icon-over"></i>
-                    <p class="item-informative-over">
-                        Atendimento Humanizado e individualizado
-                    </p>
-                </li>
-
-                <li class="item-over">
-                    <i class="fa-regular fa-circle-check icon-over"></i>
-                    <p class="item-informative-over">
-                        Ambiente Acolhedor e pensado para crianças
-                    </p>
-                </li>
+    <div class="specialized-care-container">
+        <div class="specialized-card">
+            <div class="specialized-content">
+                <h2 class="title-card">Sintomas Gastrointestinais</h2>
                 
-                <li class="item-over">
-                    <i class="fa-regular fa-circle-check icon-over"></i>
-                    <p class="item-informative-over">
-                        Acompanhamento contínuo e próximo da família
-                    </p>
+                <p class="text-soft">
+                    Investigação de sintomas gastrointestinais frequentes na infância,
+                    com foco em diagnóstico e cuidado especializado.
+                </p>
+            </div>
+                
+            <ul class="specialized-list">
+                <li>
+                    <span class="check-icon">✓</span>
+                    Refluxo e desconfortos digestivos
+                </li>
+                <li>
+                    <span class="check-icon">✓</span>
+                    Constipação intestinal
+                </li>
+                <li>
+                    <span class="check-icon">✓</span>
+                    Dor abdominal recorrente
+                </li>
+                <li>
+                    <span class="check-icon">✓</span>
+                    Alterações intestinais
                 </li>
             </ul>
         </div>
-        
-        <div class="card-informative-over">
-            <div class="info-item">
-                <i class="fa-solid fa-user"></i>
+        <div class="specialized-card">
+            <div class="specialized-content">
+                <h2 class="title-card">Alergias e Alimentação Infantil</h2>
                 
-                <div class="info-text">
-                    <span class="value">10+ anos</span>
-                    <span class="label">de experiência</span>
+                <p class="text-soft">
+                    Atendimento voltado às alergias alimentares e dificuldades 
+                    relacionadas à alimentação infantil em diferentes fases da infância.
+                </p>
+            </div>
+            
+            <ul class="specialized-list">
+                <li>
+                    <span class="check-icon">✓</span>
+                    APLV e alergias alimentares
+                    </li>
+                <li>
+                    <span class="check-icon">✓</span>
+                    Seletividade alimentar
+                </li>
+                <li>
+                    <span class="check-icon">✓</span>
+                    Recusa alimentar na infância
+                </li>
+                <li>
+                    <span class="check-icon">✓</span>
+                    Introdução alimentar com dificuldades
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="about-section" id="sobre">
+    <div class="about-container">
+
+        <img src="{% static 'home/img/drajanainasalgado.webp' %}"
+        alt="Imagem médica Dra. Janaina Salgado em ambiente clínico"  
+        loading="lazy"
+        class="about-img">
+
+        <div class="about-content">
+            <div class="about-text-content">
+                <h3 class="about-title">
+                    Por que escolher
+                    <span class="break text-highlight">a Dra. Janaina?</span>
+                </h3>
+                
+                <div class="about-description">
+                    <p class="about-specialty">
+                        Gastropediatra com atuação voltada à saúde digestiva, alergias alimentares e dificuldades alimentares na infância.
+                    </p>
+                    
+                    <p class="about-text">
+                        Atendimento pensado para acompanhar crianças e famílias com 
+                        escuta próxima, atenção individualizada e cuidado acolhedor.
+                    </p>
                 </div>
             </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <div class="info-text">
-                    <span class="value">Gastro Pediátrica</span>
-                    <span class="label">especialização médica</span>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-heart-pulse"></i>
                 
-                <div class="info-text">
-                    <span class="value">Atendimento humanizado</span>
-                    <span class="label">foco no paciente</span>
-                </div>
+            <ul class="about-mini-container">
+                <li class="about-mini-item">
+                    <span class="check-icon">✓</span>
+                    <p class="about-item-text">
+                        Especialista em Gastroenterologia Pediátrica
+                    </p>
+                </li>
+                
+                <li class="about-mini-item">
+                    <span class="check-icon">✓</span>
+                    <p class="about-item-text">
+                        Especialista em alergia alimentar
+                    </p>
+                </li>
+
+                <li class="about-mini-item"> 
+                    <span class="check-icon">✓</span>
+                    <p class="about-item-text">
+                        Atendimento acolhedor e individualizado
+                    </p>
+                </li>
+
+                <li class="about-mini-item">
+                    <span class="check-icon">✓</span>
+                    <p class="about-item-text">
+                        Acompanhamento próximo da criança e da família
+                    </p>
+                </li>
+                
+                <li class="about-mini-item">
+                    <span class="check-icon">✓</span>
+                    <p class="about-item-text">
+                        Ambiente pensado para o conforto infantil
+                    </p>
+                </li>
+            </ul>
+
+            <div class="about-actions">
+                <a href="{% url 'agendar_consulta' %}" class="btn-schedule">
+                    Agendar Consulta
+                </a>
+
+                <a class="btn-instagram btn-instagram-soft" 
+                    href="https://instagram.com/drajanainagastroped"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i>
+                    Acompanhar Conteúdos
+                </a>
             </div>
         </div>
 
-        <div class="consult-process">
-            <div class="consult-process-container">
-                <h2 class="consult-process-title">Consulta</h2>
-        
-                <ul class="consult-process-content">
-                    <li>
-                        <span class="text">Escuta detalhada dos sintomas</span>
-                        <span class="icon">
-                            <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="text">Avaliação clínica</span>
-                        <span class="icon">
-                            <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary);"></i>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="text">Orientação alimentar</span>
-                        <span class="icon">
-                            <i class="fa-solid fa-arrow-right fa-xl" style="color: var(--color-accent-primary)"></i>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="text">Plano de tratamento personalizado</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </div>
 </section>
 
 <section class="section-carousel" id="depoimentos">
     <div class="title-carousel">
+        <div class="text-label">
+                Avaliações
+            </div>
         <h3 class="title-primary">
-            Depoimentos
+            <span class="text-highlight">Depoimentos</span>
         </h3>
         <p class="description">Relatos de pais e responsáveis de pacientes acompanhados ao longo do tratamento.</p>
     </div>
@@ -271,14 +346,12 @@
                         </div>
                         
                         <div class="star"> 
-                            "
                             {% for _ in item.stars_range %}
                             <i class="fa-solid fa-star" style="color: rgb(251, 206, 46);"></i>
                             {% endfor %}
-                            " 
                         </div>
 
-                        <p>{{ item.comment }}</p>
+                        <p>"{{ item.comment }}"</p>
                             
                     </div>
                 </div>
@@ -290,14 +363,27 @@
     </div>
 </section>
 
-<!--
-
 <section class="cta-final">
-    <h2>Agende uma consulta e cuide da saúde do seu filho</h2>
-
-    <a class="btn-schedule" href="{% url 'agendar_consulta' %}">Agendar consulta</a>
+    <div class="title-cta">
+        <div class="text-label">
+            Cuidado especial
+        </div>
+        <h2 class="title-primary">Cuide da saúde digestiva do seu filho
+            <span class="break text-highlight">com acompanhamento especializado</span>
+        </h2>
+        <p class="description">
+            Orientação especializada para promover bem-estar,
+            conforto e desenvolvimento saudável infantil.
+        </p>
+    </div>
+    <div class="content-cta">        
+        <a class="btn-cta" href="{% url 'agendar_consulta' %}">Acesse e agende sua consulta</a>
+        <p class="tags">
+            Atendimento humanizado • Consulta especializada • Acompanhamento infantil
+        </p>
+    </div>
 </section>
--->
+
 
 {% endblock %}
 
