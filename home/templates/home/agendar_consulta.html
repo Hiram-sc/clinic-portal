@@ -14,7 +14,7 @@
         justify-content: center;
         padding-top: var(--nav-height);
         padding-bottom: 40px;
-        background-color: rgb(240, 236, 236);
+        background-color: #EDF2F0;
         min-height: 100vh;
     }
 
@@ -51,10 +51,17 @@
     .title-form-consultation {
         text-align: center;
         font-size: 28px;
-        color: rgb(193, 186, 186);
+        color: var(--color-primary);
         line-height: 1.1;
         font-weight: 600;
         cursor: default;
+    }
+
+    .text-highlight {
+        background: var(--gradient-accent);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .break {
@@ -72,15 +79,15 @@
     .text-form-content {
         font-size: 16px;
         font-weight: 500;
-        color: #90a1b9;
+        color: var(--color-primary);
         margin-left: 6px;        
     }
 
     .form-input{
         width: 100%;
         padding: 14px 16px;
-        border: 1px solid #DDD;
         border-radius: 8px;
+        border: 1px solid #DDD;
         background-color: #f4f6f8;
         font-size: 16px;
         outline: none;
@@ -89,8 +96,8 @@
 
     .form-input:focus {
         background-color: #FFF;
-        border: 2px solid #d27177;
-        box-shadow: 0 4px 8px rgba(213, 147, 147, 0.3);
+        border: 1px solid rgba(210,113,119,.45);
+        box-shadow: 0 0 0 2px rgba(231,122,134,.12);
         outline: none;
     }
 
@@ -162,10 +169,10 @@
 <section class="section-form">
     <form method="post" novalidate class="container-form-consultation">
         <div class="form-header">
-            <img src="{% static 'home/icons/icon/icon-drajanaina.png' %}" class="form-icon">
+            <img src="{% static 'home/icons/icon-drajanaina.png' %}" class="form-icon">
             <h3 class="title-form-consultation">
                 Consultório 
-                <span class="break">
+                <span class="break text-highlight">
                     Dra. Janaina
                 </span>
             </h3>
