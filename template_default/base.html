@@ -12,7 +12,7 @@
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 
     <!-- Icon -->
-    <link rel="icon" type="image/png" href="{% static 'home/icons/icon/icon-drajanaina.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'home/icons/icon-drajanaina.png' %}">
     
     <!-- Open Graph (Whatsapp, Telegram, Facebook, etc)-->
      <meta property="og:title" content="Dra. Janaina Salgado - Gastropediatra">
@@ -46,13 +46,12 @@
 
         :root {
             --nav-height: 60px;
-            --color-primary: #6f3c3f;
-            --color-bg-body: #e0adb1;
-            --color-bg-container: #fff9f9;
+            --color-primary: #24312D;
+            --color-secondary: #5E6B67;
+            --gradient-accent: linear-gradient(90deg, #D27177 0%, #B89D8B 100%);
+            --color-bg-container: #F9FAFB;
             --color-nav-link: #bb5b63;
-            --color-accent-primary: #f6828a;
-            --color-accent-highlight: #fdeeee;
-            --color-text-body: #4e3a3c;
+            --color-accent-primary: #E77A86;
         }
 
         body {
@@ -107,30 +106,39 @@
             gap: 3px;
         }
 
+        .icon-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            width: 50px;
+            height: auto;
+            object-fit: contain;
+        }
+
         .title-block {
             display: flex;
             flex-direction: column;
             gap: 1px;
         }
 
-        .icon-medical {
-            color: var(--color-primary);
-            font-size: 36px;
-            line-height: 1;
-        }
-
         .title {
             font-size: 20px;
-            color: var(--color-primary);
+            background: var(--gradient-accent);
+            
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin: 0;
+            font-weight: 500;
             line-height: 1.1;
         }
 
         .subtitle {
             font-size: 17px;
-            font-weight: 500;
-            color: var(--color-primary);
+            color: var(--color-secondary);
             margin: 0;
+            font-weight: 500;
             line-height: 1.1;
         }
 
@@ -139,7 +147,7 @@
         }
 
         .nav-link {
-            color: var(--color-primary);
+            color: var(--color-secondary);
             font-weight: 500;
             transition: color 0.3s ease, text-decoration 0.3s ease;
         }
@@ -155,13 +163,11 @@
             color: #FFF !important;
             border-radius: 8px;
             text-decoration: none;  
-            transition: background-color 0.6s ease, box-shadow 0.3s ease;
+            transition: background-color 0.6s ease;
         }
 
         .btn-schedule:hover {
             background-color: #d27177;
-            box-shadow: 0 4px 8px rgba(213, 147, 147, 0.3);
-            opacity: 1;
             text-decoration: none;
         } 
 
@@ -184,91 +190,132 @@
 
         footer {
             display: flex;
-            padding-top: 20px;
-            gap: 10px;
             flex-direction: column;
-            background: linear-gradient(135deg, 
-                #A7B5BC 40%,   
-                #EBC1CB 100%   
+            padding: 50px 20px 20px;
+            background: linear-gradient(
+                135deg,
+                #44535B 0%,
+                #6D7D84 45%,
+                #8C9B9A 100%
             );
         }
 
         .footer-content {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1.2fr;
+            align-items: start;
+            gap: 80px;
+            padding: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
             display: flex;
-            gap: 90px;
-            justify-content: center;
-            flex-wrap: wrap;
-            border-bottom: 2px solid rgba(0,0,0,0.08);
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
         }
 
-        .footer-mini-content {
-            max-width: 300px;
+        .footer-brand-header {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 6px;
         }
 
-        .footer-title {
-            color: var(--color-primary);
+        .icon-brand-title {
+            background-color: #fff;
+            border-radius: 20px;
+            width: 40px;
+            height: auto;
+        }
+
+        .footer-brand-title {
+            color: #FFF;
             font-size: 16px;
+            font-weight: 600;
             margin-bottom: 14px;
+            margin: auto 0;
+        }
+
+        .footer-description {
+            color: rgba(255,255,255,.78);
         }
 
         .footer-text {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             list-style: none;
-            padding: 5px 0;
+            padding: 0;
+            margin: 0;
         }
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
-            gap: 4px;
-            margin-bottom: 8px;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
         }
 
-        .contact-item i {
+        .contact-icon {
+            color: rgba(255,255,255,.68);
             font-size: 16px;
-        }
-
-        .contact-content {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .contact-header p {
-            color: #FFF;
-            margin: 0;
-            font-weight: 600;
-            line-height: 1;
+            width: 20px;
+            flex-shrink: 0;
         }
         
-        .contact-info {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
         .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,.68);
             text-decoration: none;
-            color: #FFF;
+            font-size: 16px;
+            line-height: 1.4;
+            width: 100%;
+            margin: 0;
+            transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
         }
 
-        .footer-map iframe {
-            width: 100%;
-            max-width: 300px;
-            height: 160px;
-            border-radius: 20px;
+        .footer-link-address {
+            align-items: flex-start;
+        }
+
+        .footer-link-address .contact-icon-wrapper {
+            margin-top: 3px;
+        }
+        
+        .footer-link:hover,
+        .footer-link:hover .contact-icon {
+            color: rgba(255,255,255,1);
+        }
+        
+        .contact-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
 
         .footer-bottom {
-            text-align: center;
-            padding: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0 0;
+            border-top: 1px solid rgba(255,255,255,0.12);
         }
 
         footer small {
-            color: #FFF;
+            color: rgba(255,255,255,.68);
             font-size: 14px;
             font-weight: 400;
+            text-align: center;
         }
         
     </style>
@@ -285,11 +332,13 @@
                 <div class="navbar-inner">
 
                     <a class="container-title" href="{% url 'home' %}">
-                        <i class="fa-solid fa-book-medical icon-medical"></i>
+                        <div class="icon-nav">
+                            <img src="{% static 'home/icons/icon-drajanaina.png' %}" alt="Logo Dra. Janaina Carvalho Salgado" class="navbar-logo">
+                        </div>
 
                         <div class="title-block">
                             <h2 class="title">
-                                Dra. Janaina Salgado
+                                Consultório Dra. Janaina Salgado
                             </h2>
                             
                             <p class="subtitle">
@@ -317,8 +366,7 @@
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#sobre">Sobre</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#depoimentos">Depoimentos</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#consultorio">Consultório</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'para_pais' %}">Para Pais</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'para_pais' %}">Para pais</a></li>
                                 <li class="nav-item"><a class="btn-schedule" href="{% url 'agendar_consulta' %}">Agendar Consulta</a></li>
                             </ul>
                         </div>
@@ -336,98 +384,88 @@
         <footer>
 
             <div class="footer-content">
-                <div class="footer-mini-content">
-                    <h4 class="footer-title">Contato</h4>
-                    <ul class="footer-text">
+                
+                <div class="footer-brand">
+                    <div class="footer-brand-header">
+                        <img src="{% static 'home/icons/icon-drajanaina-p2.png' %}" class="icon-brand-title">
                         
-                        <li class="contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            
-                            <div class="contact-content">
-                                <div class="contact-header">
-                                    <p>Telefone</p>
-                                </div>
-                                
-                                <span class="contact-info">(22) 99906-0047</span>
-                            </div>
-                        </li>
-            
-                        <li class="contact-item">
-                            <i class="fa-brands fa-instagram"></i>
-                            
-                            <div class="contact-content">
-                                <div class="contact-header">
-                                    <p>Instagram</p>
-                                </div>
-                                
-                                <span class="contact-info">@drajanainasalgado</span>
-                            </div>
-                        </li>
-                        
-                        <li class="contact-item">
-                            <i class="fa-regular fa-envelope"></i>
-                            
-                            <div class="contact-content">
-                                <div class="contact-header">
-                                    <p>Email</p>
-                                </div>
-                                
-                                <span class="contact-info">salgadocarvalhojanaina@gmail.com</span>
-                            </div>
-                        </li>
-        
-                    </ul>
+                        <h5 class="footer-brand-title">Consultório
+                            <span class="break">
+                                Dra. Janaina Salgado
+                            </span>
+                        </h5>
+                    </div>
+                    
+                        <p class="footer-description">
+                            Atendimento gastroenterológico infantil com foco em acolhimento,
+                            escuta próxima e acompanhamento individualizado para crianças e famílias.
+                        </p>
                 </div>
 
-                <div class="footer-mini-content">
-                    <h5 class="footer-title">Navegação</h5>
+                <div class="footer-brand">
+                    <h5 class="footer-brand-title">Navegação</h5>
                     <ul class="footer-text">
                         <li><a class="footer-link" href="{% url 'home' %}">Início</a></li>
                         <li><a class="footer-link" href="#sobre">Sobre</a></li>
                         <li><a class="footer-link" href="#depoimentos">Depoimentos</a></li>
-                        <li><a class="footer-link" href="{% url 'para_pais' %}">Para Pais</a></li>
+                        <li><a class="footer-link" href="{% url 'para_pais' %}">Para pais</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-mini-content">
-                    <h5 class="footer-title">Sobre</h5>
+                <div class="footer-brand">
+                    <h4 class="footer-brand-title">Canais de Atendimento</h4>
                     <ul class="footer-text">
-                        <li>Especialista em Gastroenterologia Pediátrica</li>
-                        <li>Atendimento para crianças e adolescentes</li>
+                        
+                        <li class="contact-item">
+                            <a href="tel:+5522999060047" class="footer-link">
+                                <span class="contact-icon-wrapper">
+                                    <i class="fa-solid fa-phone contact-icon"></i>
+                                </span>
+                                (22) 99906-0047
+                            </a>
+                        </li>
+            
+                        <li class="contact-item"> 
+                            <a class="footer-link" 
+                                href="https://instagram.com/drajanainagastroped"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <span class="contact-icon-wrapper">
+                                    <i class="fa-brands fa-instagram contact-icon"></i>
+                                </span>
+                                @drajanainasalgado
+                            </a>    
+                        </li>
+                        
+                        <li class="contact-item">
+                            <a href="mailto:salgadocarvalhojanaina@gmail.com" class="footer-link">
+                                <span class="contact-icon-wrapper">
+                                    <i class="fa-regular fa-envelope contact-icon"></i>
+                                </span>
+                                salgadocarvalhojanaina@gmail.com
+                            </a>
+                        </li>
+
+                        <li class="contact-item">
+                            <a href="https://maps.app.goo.gl/beWSXDUvWpAQmWeG7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="footer-link footer-link-address">
+                                <span class="contact-icon-wrapper">
+                                    <i class="fa-solid fa-location-dot contact-icon"></i>
+                                </span>
+                                Connect Work • Sala 605 • Campos dos Goytacazes/RJ
+                            </a>
+                        </li>
+                        
                     </ul>
                 </div>
 
-                <div class="footer-mini-content">
-                    <h5 class="footer-title">Endereço</h5>
-
-                    <div class="footer-map">
-
-                        <!-- Form Localization -->
-                        <form method="GET" novalidate>
-                            <div class="footer-form-map">
-
-                            </div>
-                        </form>
-                        
-                        <div class="map">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.465427355266!2d-41.327842625086966!3d-21.76224069797056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdd55b9ef2ad39%3A0x83eadb115cc75fd6!2sDra.%20Janaina%20Salgado%20Carvalho%2C%20Pediatra%2C%20Gastropediatria%20e%20Neonatologia!5e0!3m2!1spt-BR!2sbr!4v1778686234937!5m2!1spt-BR!2sbr"
-                                width="600"
-                                height="450" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade"
-                                id="consultorio">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
             </div>
             
             <div class="footer-bottom">
                 <small>
-                    © 2026 Dra Janaina Salgado - Todos os direitos reservados
+                    © 2026 Consultório Dra. Janaina Salgado • Todos os direitos reservados.
                 </small>
             </div>
 
