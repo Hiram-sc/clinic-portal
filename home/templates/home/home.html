@@ -389,6 +389,26 @@
 
 {% block extra_scripts %}
 
-<script src="{% static 'home/js/script.js' %}" defer></script>
+<script>
+
+    //DOM Elements
+    const track = document.getElementById("carouselTrack");
+    const cards = document.querySelectorAll(".carousel-card");
+
+    let currentIndex = 0;
+
+    const totalCards = cards.length;
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalCards;
+
+        track.style.transform = 
+            `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // Autoplay
+    setInterval(nextSlide, 4000);
+
+</script>
 
 {% endblock %}
