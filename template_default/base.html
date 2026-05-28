@@ -19,9 +19,6 @@
      <meta property="og:description" content="Atendimento em gastropediatria em Campos dos Goytacazes - RJ">
      <meta property="og:url" content="{{ request.build_absolute_uri }}">
     
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/f8c32f1a2a.js" crossorigin="anonymous"></script>
 
@@ -95,6 +92,7 @@
             align-items: center;
             width: 100%;
             max-width: 1300px;
+            min-height: 72px;
             padding: 5px 10px 8px 10px;
         }
 
@@ -131,7 +129,7 @@
             -webkit-text-fill-color: transparent;
             margin: 0;
             font-weight: 500;
-            line-height: 1.1;
+            line-height: 1.3;
         }
 
         .subtitle {
@@ -142,12 +140,34 @@
             line-height: 1.1;
         }
 
+        .custom-navbar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
         .nav-item {
-            margin-right: 7px;   
+            font-weight: 500;
+            font-size: 16px;
         }
 
         .nav-link {
             color: var(--color-secondary);
+            text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease, text-decoration 0.3s ease;
         }
@@ -191,6 +211,7 @@
         footer {
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
             padding: 50px 20px 20px;
             background: linear-gradient(
                 135deg,
@@ -203,6 +224,7 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1.4fr 1fr 1.2fr;
+            
             align-items: start;
             gap: 80px;
             padding: 30px;
@@ -347,29 +369,21 @@
                         </div>
                     </a>
                     
-                    <nav class="navbar navbar-expand-lg" role="navigation">
-                        <button class="navbar-toggler"
-                                type="button" 
-                                data-bs-toggle="collapse" 
-                                data-bs-target="#navbarNav" 
-                                aria-controls="navbarNav"
-                                aria-expanded="false"
-                                aria-label="Alternar navegação">
-                            <span class="navbar-toggler-icon"></span>
+                    <nav class="custom-navbar" role="navigation">
+                        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+                            
                         </button>
 
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"><a class="nav-link" href="{% if request.resolver_match.url_name == 'home' %}#topo{% else %}{% url 'home' %}{% endif %}">
-                                        Início
-                                    </a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#sobre">Sobre</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#depoimentos">Depoimentos</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'para_pais' %}">Para pais</a></li>
-                                <li class="nav-item"><a class="btn-schedule" href="{% url 'agendar_consulta' %}">Agendar Consulta</a></li>
-                            </ul>
-                        </div>
+                        <ul class="nav-list" id="nav-menu">
+                            <li class="nav-item"><a class="nav-link" href="{% if request.resolver_match.url_name == 'home' %}#topo{% else %}{% url 'home' %}{% endif %}">
+                                    Início
+                                </a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#sobre">Sobre</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#depoimentos">Depoimentos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'para_pais' %}">Para pais</a></li>
+                            <li class="nav-item"><a class="btn-schedule" href="{% url 'agendar_consulta' %}">Agendar Consulta</a></li>
+                        </ul>
                     </nav>
 
                 </div>    
@@ -474,8 +488,8 @@
         
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
+
 {% block extra_scripts %}{% endblock %}
 
 </body>
