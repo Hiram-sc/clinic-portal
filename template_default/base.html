@@ -177,9 +177,12 @@
         }
 
         .btn-schedule {
-            display: inline-block;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
             background-color: var(--color-accent-primary);
-            padding: 8px 12px;
+            padding: 10px 12px;
             color: #FFF !important;
             border-radius: 8px;
             text-decoration: none;  
@@ -339,6 +342,75 @@
             font-weight: 400;
             text-align: center;
         }
+
+        /* Media Queries Mobile/Tablets */
+
+        @media (max-width: 768px) {
+            
+            .title {
+                font-size: 17px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+            }
+
+            .menu-toggle {
+                display: block;
+                width: 40px;
+                height: 40px;
+                color: rgb(193, 186, 186);
+                font-size: 20px;
+            }
+
+            .menu-toggle i {
+                transition: transform 0.25s ease, opacity 0.2s ease;
+            }
+
+            .menu-toggle:hover i {
+                transform: scale(1.08);
+            }
+
+            .navbar-inner {
+                position: relative;
+                padding: 0 10px;
+            }
+
+            .nav-list {
+                position: absolute;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+                top: var(--nav-height);
+                right: 0;
+                width: 100%;
+                padding: 20px;
+                background: #FFF;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+                pointer-events: none;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+                transform: translateY(-10px);
+                display: flex;
+            }
+
+            .nav-list.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
         
     </style>
 
@@ -371,7 +443,7 @@
                     
                     <nav class="custom-navbar" role="navigation">
                         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
-                            
+                            <i class="fa-solid fa-bars"></i>
                         </button>
 
                         <ul class="nav-list" id="nav-menu">
@@ -489,6 +561,42 @@
     </div>
 
 <script src="https://unpkg.com/imask"></script>
+
+<script>
+
+    // DOM Elements 
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const icon = menuToggle.querySelector('i');
+
+    function openMenu() {
+        navMenu.classList.add('active');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+    }
+
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    }
+
+    menuToggle.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    // Fecha menu     
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMenu();
+        })
+    })
+
+</script>
 
 {% block extra_scripts %}{% endblock %}
 
