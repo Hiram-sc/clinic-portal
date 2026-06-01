@@ -28,6 +28,10 @@
     -webkit-text-fill-color: transparent;
 }
 
+.break {
+    display: block;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -83,6 +87,20 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     margin: 0 auto 18px auto;
+}
+
+/* Animation */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Media Queries Mobile/Tablets */

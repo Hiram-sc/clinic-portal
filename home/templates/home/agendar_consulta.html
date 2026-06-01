@@ -51,21 +51,10 @@
     .title-form-consultation {
         text-align: center;
         font-size: 28px;
-        color: var(--color-primary);
+        color: var(--color-secondary);
         line-height: 1.1;
         font-weight: 600;
         cursor: default;
-    }
-
-    .text-highlight {
-        background: var(--gradient-accent);
-
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .break {
-        display: block;
     }
 
     .form-consultation {
@@ -73,13 +62,16 @@
     }
 
     .form-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
         width: 100%;
     }
 
     .text-form-content {
         font-size: 16px;
         font-weight: 500;
-        color: var(--color-primary);
+        color: var(--color-secondary);
         margin-left: 6px;        
     }
 
@@ -108,7 +100,7 @@
     .select-arrow {
         position: absolute;
         top: 50%;
-        color: #333; 
+        color: var(--color-secondary); 
         right: 16px;
         transform: translateY(-50%);
         transition: transform 0.3s ease; 
@@ -120,7 +112,7 @@
     
     .input-selection {
         appearance: none;
-        color: #333; 
+        color: var(--color-secondary); 
         -webkit-appearance: none;
         -moz-appearance: none;
     }

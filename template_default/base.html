@@ -198,19 +198,6 @@
            flex: 1;
         } 
 
-        .fade-in-content > * {
-            opacity: 0;
-            transform: translateY(0);
-            animation: fadeIn 2s ease forwards;
-            }
-
-            @keyframes fadeIn {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
         footer {
             display: flex;
             flex-direction: column;
@@ -465,13 +452,14 @@
             </div>  
         </header>
         
-        <main class="fade-in-content" role="main">
+        <main role="main">
             {% block content %}{% endblock %}
         </main>
         
         {% block footer %}
         <footer>
 
+            {% block footer_content %}
             <div class="footer-content">
                 
                 <div class="footer-brand">
@@ -551,12 +539,15 @@
                 </div>
 
             </div>
+            {% endblock %}
             
+            {% block footer_bottom %}
             <div class="footer-bottom">
                 <small>
                     © 2026 Consultório Dra. Janaina Salgado • Todos os direitos reservados.
                 </small>
             </div>
+            {% endblock %}
 
         </footer>
         {% endblock %}
@@ -598,6 +589,27 @@
             closeMenu();
         })
     })
+    
+
+    // Animation
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const elements = document.querySelectorAll(".reveal, .img-reveal, .tags-reveal");
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        elements.forEach(el => observer.observe(el));
+    });
 
 </script>
 

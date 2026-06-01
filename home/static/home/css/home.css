@@ -50,10 +50,6 @@
     margin: 0;
 }
 
-.break {
-    display: block;
-}
-
 .hero-content {
     display: flex;
     flex-direction: column;
@@ -452,6 +448,19 @@
     color: #5A5A5A;
 }
 
+/* Animation */
+
+.img-reveal {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    will-change: opacity, transform;
+}
+
+.img-reveal.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 /* Media Queries Mobile/Tablets */
 
