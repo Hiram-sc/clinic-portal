@@ -247,9 +247,35 @@
         .footer-brand-title {
             color: #FFF;
             font-size: 16px;
+            line-height: 1.1;
             font-weight: 600;
             margin-bottom: 14px;
             margin: auto 0;
+        }
+
+        .crm-rqe {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .credentials-footer {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,.9);
+            background: rgba(255,255,255,.12);
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
+            cursor: default;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,.15);
+            transition: all 0.2s ease;
+        }
+
+        .credentials-footer:hover {
+            background: rgba(255,255,255,.18);
+            transform: translateY(-1px);
         }
 
         .footer-description {
@@ -425,9 +451,12 @@
                                 Consultório Dra. Janaina Salgado
                             </h2>
                             
-                            <p class="subtitle">
-                                Gastropediatra
-                            </p>
+                            <div class="subtlitle-block">
+                                <p class="subtitle">
+                                    Gastropediatra
+                                </p>
+                            </div>
+                            
                         </div>
                     </a>
                     
@@ -473,10 +502,16 @@
                         </h5>
                     </div>
                     
-                        <p class="footer-description">
-                            Atendimento gastroenterológico infantil com foco em acolhimento,
-                            escuta próxima e acompanhamento individualizado para crianças e famílias.
-                        </p>
+                    <div class="crm-rqe">
+                        <span class="credentials-footer">
+                            CRM 52 794678
+                        </span>
+                    </div>
+
+                    <p class="footer-description">
+                        Atendimento gastroenterológico infantil com foco em acolhimento,
+                        escuta próxima e acompanhamento individualizado para crianças e famílias.
+                    </p>
                 </div>
 
                 <div class="footer-brand">
