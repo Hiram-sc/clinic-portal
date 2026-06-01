@@ -30,23 +30,23 @@
         justify-content: center;
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 20px;
         max-width: 700px;
     }
 
-    .title-primary {
-        color: var(--color-primary);
-        font-size: 40px;
-        font-weight: 700;
-        text-align: center;
+    .container-hero-header {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        justify-content: flex-start;
+        margin: 0;
     }
 
-    .description {
-        text-align: justify;
+    .description-hero {
         max-width: 520px;
         font-size: 16px;
         line-height: 1.5;
-        letter-spacing: 0.1px;
+        color: var(--color-secondary);
     }
 
     .hero-tags {
@@ -140,7 +140,6 @@
         justify-content: center;
         align-items: center;
         gap: 40px;
-        margin: 0 auto;
     }
 
     .header-content {
@@ -150,20 +149,6 @@
         text-align: center;
         padding-bottom: 36px;
         font-weight: 700;
-    }
-
-    .text-label {
-        width: fit-content;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: rgba(230, 190, 199, 0.14);
-        border: 1px solid rgba(230, 190, 199, 0.30);
-        color: var(--color-nav-link);
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin: 0 auto 18px auto;
     }
 
     .header-content p {
@@ -183,42 +168,7 @@
     }
 
     .tips-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: start;
-        max-width: 360px;
         height: 260px;
-        padding: 20px 30px;
-        background-color: #fff;
-        border: 1px solid #ece9e9;
-        border-radius: 20px;
-        transition: 0.3s ease;
-    }
-
-    .tips-card:hover {
-        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-        transform: translateY(-6px);
-    }
-
-    .icon-card {
-        font-size: 36px;
-    }
-
-    .card-content-text {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
-    
-    .card-content-text h3 {
-        font-size: 26px;
-        color: var(--color-primary);
-        font-weight: 600;
-    }
-
-    .card-content-text p {
-
     }
 
     /* Faq */
@@ -239,17 +189,6 @@
         padding-bottom: 30px;
     }
 
-    .text-highlight {
-    background: var(--gradient-accent);
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    }
-
-    .faq-item {
-        
-    }
-
     .faq-list {
         display: flex;
         flex-direction: column;
@@ -265,15 +204,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 12px;
         padding: 18px;
         background: transparent;
         border: 1px solid #DDD;
         border-radius: 20px;
+        cursor: pointer;
     }
 
     .text-style {
+        flex: 1;
+        color: var(--color-primary);
         font-size: 16px;
-        font-weight: 500;
+        text-align: left;
     }
 
     .faq-icon {
@@ -300,7 +243,34 @@
     }
 
     .faq-answer p {
-        
+        color: var(--color-secondary);
+        margin-left: 5px;
+    }
+
+    @media (max-width: 768px) {
+
+        .hero-guide .container-hero {
+            flex-direction: column;
+        }
+
+        .container-hero-text {
+            align-items: center;
+        }
+
+        .hero-tags {
+            justify-content: center;
+        }
+
+        .hero-card {
+            transform: none;
+        }
+
+        .description-hero,
+        .hero-note {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
     }
 
 </style>
@@ -313,14 +283,16 @@
     <div class="container-hero">
 
         <div class="container-hero-text">
-            <h2 class="title-primary">Saúde infantil
-                <span class="text-highlight">na prática</span>
-            </h2>
-            <p class="description">
-                Reunimos dúvidas frequentes, orientações
-                e conteúdos educativos para apoiar famílias
-                com mais segurança e tranquilidade.
-            </p>
+            <div class="container-hero-header">
+                <h2 class="title-primary">Saúde infantil
+                    <span class="text-highlight">na prática</span>
+                </h2>
+                <p class="description-hero">
+                    Reunimos dúvidas frequentes, orientações
+                    e conteúdos educativos para apoiar famílias
+                    com mais segurança e tranquilidade.
+                </p>
+            </div>
 
             <div class="hero-tags">
                 <span>APLV</span>
@@ -339,17 +311,17 @@
         <div class="hero-card">
             <div class="hero-card-content">
                 <div class="icon-mini-card">📚</div>
-                <p>Conteúdos educativos</p>
+                <p class="text-soft">Conteúdos educativos</p>
             </div>
             
             <div class="hero-card-content">
                 <div class="icon-mini-card">💛</div>
-                <p>Orientações acolhedoras</p>
+                <p class="text-soft">Orientações acolhedoras</p>
             </div>
             
             <div class="hero-card-content">
                 <div class="icon-mini-card">❓</div>
-                <p>Dúvidas frequentes</p>
+                <p class="text-soft">Dúvidas frequentes</p>
             </div>
         </div>
 
@@ -358,7 +330,7 @@
 </section>
 
 <section class="section-tips">
-    <div class="tips-container">
+    <div class="tips-container container">
         <div class="header-content">
             <div class="text-label">
                 Dicas de Saúde
@@ -367,90 +339,90 @@
                 <span class="text-highlight">para pais</span>
             </h2>
             
-            <p>Orientações simples para ajudar no cuidado e entendimento da saúde infantil</p>
+            <p class="description">Orientações simples para ajudar no cuidado e entendimento da saúde infantil</p>
         </div>
 
         <div class="tips-content">
 
-            <div class="tips-card">
+            <div class="tips-card card">
                 <div class="icon-card">
                     🏷️
                 </div>
 
-                <div class="card-content-text">
-                    <h3>Identificar leite nos rótulos</h3>
+                <div class="content-card">
+                    <h2 class="title-card">Identificar leite nos rótulos</h2>
                     
-                    <p class="text-style">
+                    <p class="text-soft">
                         Caseína, whey e soro do leite indicam presença de leite
                     </p>
                 </div>
             </div>
 
-            <div class="tips-card">
+            <div class="tips-card card">
                 <div class="icon-card">
                     ⚠️
                 </div>
                 
-                <div class="card-content-text">
-                    <h3>“Sem lactose” não é APLV</h3>
+                <div class="content-card">
+                    <h2 class="title-card">“Sem lactose” não é APLV</h2>
                     
-                    <p>
+                    <p class="text-soft">
                         Produtos sem lactose ainda podem conter proteína do leite
                     </p>
                 </div>
             </div>
 
-            <div class="tips-card">
+            <div class="tips-card card">
                 <div class="icon-card">
                     📝
                 </div>
 
-                <div class="card-content-text">
-                    <h3>Diário alimentar pode ajudar</h3>
+                <div class="content-card">
+                    <h2 class="title-card">Diário alimentar pode ajudar</h2>
                     
-                    <p>
+                    <p class="text-soft">
                         Registrar refeições ajuda a identificar sintomas
                     </p>
                 </div>
             </div>
             
-            <div class="tips-card">
+            <div class="tips-card card">
                 <div class="icon-card">
                     🍽️
                 </div>
 
-                <div class="card-content-text">
-                    <h3>Pequenos contatos importam</h3>
+                <div class="content-card">
+                    <h2 class="title-card">Pequenos contatos importam</h2>
                     
-                    <p>
+                    <p class="text-soft">
                         Utensílios compartilhados podem causar reações
                     </p>
                 </div>
             </div>
             
-            <div class="tips-card">
+            <div class="tips-card card">
                 <div class="icon-card">
                     👶
                 </div>
 
-                <div class="card-content-text">
-                    <h3>Nem todo refluxo infantil é preocupante</h3>
+                <div class="content-card">
+                    <h2 class="title-card">Nem todo refluxo infantil é preocupante</h2>
                     
-                    <p>
+                    <p class="text-soft">
                         Pode ser comum, mas alguns sinais exigem atenção
                     </p>
                 </div>
             </div>
             
-            <div class="tips-card">
+            <div class="tips-card card">
                 <div class="icon-card">
                     🍎
                 </div>
 
-                <div class="card-content-text">
-                    <h3>Restrição Alimentar sem peso</h3>
+                <div class="content-card">
+                    <h2 class="title-card">Restrição Alimentar sem peso</h2>
                     
-                    <p>
+                    <p class="text-soft">
                         Adaptação alimentar pode ser leve e equilibrada
                     </p>
                 </div>
@@ -464,7 +436,7 @@
 
 <section class="section-faq">
     
-    <div class="faq-container">
+    <div class="faq-container container">
         <div class="faq-header">
             <div class="text-label">
                 Dúvidas Frequentes
@@ -589,6 +561,7 @@
 
 <script>
 
+    /* faq */
     const faqItems = document.querySelectorAll(".faq-item");
 
     faqItems.forEach(item => {

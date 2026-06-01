@@ -42,7 +42,7 @@
         }
 
         :root {
-            --nav-height: 60px;
+            --nav-height: 72px;
             --color-primary: #24312D;
             --color-secondary: #5E6B67;
             --gradient-accent: linear-gradient(90deg, #D27177 0%, #B89D8B 100%);
@@ -414,6 +414,9 @@
         
     </style>
 
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="{% static 'home/css/global.css' %}">
+
 {% block extra_css %}{% endblock %}
 </head>
 
@@ -560,7 +563,7 @@
         
     </div>
 
-<script src="https://unpkg.com/imask"></script>
+<script defer src="https://unpkg.com/imask" crossorigin="anonymous"></script>
 
 <script>
 
