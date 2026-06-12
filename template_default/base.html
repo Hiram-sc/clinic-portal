@@ -9,7 +9,12 @@
     <title>{% block title %} Dra. Janaina Salgado | Gastropediatra {% endblock %}</title>
     <meta name="description" content="Dra. Janaina Salgado, especialista em gastropediatria em Campos dos Goytacazes - RJ. Atendimento infantil especializado em doenças gastrointestinais pediátricas.">
     <meta name="keywords" content="gastropediatra, pediatra, gastroenterologia infantil">
+    
+    <!-- Canonical URL evita conteudo dubplicado no SEO -->
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+
+    <!-- Data Detection -->
+    <meta name="format-detection" content="telephone=no">
     
     <!-- Open Graph (Whatsapp, Telegram, Facebook, etc)-->
      <meta property="og:title" content="Dra. Janaina Salgado - Gastropediatra">
@@ -25,7 +30,7 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- CSS Global -->
     <link rel="stylesheet" href="{% static 'home/css/global.css' %}">
@@ -265,7 +270,7 @@
         .credentials-footer {
             font-size: 13px;
             font-weight: 500;
-            color: rgba(255,255,255,.9);
+            color: rgba(255,255,255,.9) !important;
             background: rgba(255,255,255,.12);
             padding: 4px 10px;
             border-radius: 6px;
@@ -273,12 +278,11 @@
             cursor: default;
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255,255,255,.15);
-            transition: all 0.2s ease;
+            transition: 0.2s ease;
         }
 
         .credentials-footer:hover {
             background: rgba(255,255,255,.18);
-            transform: translateY(-1px);
         }
 
         .footer-description {
@@ -362,7 +366,7 @@
         /* Media Queries Mobile/Tablets */
 
         @media (max-width: 768px) {
-            
+
             .title {
                 font-size: 17px;
             }
@@ -425,6 +429,18 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            
+            .navbar-container {
+                padding: 2px;
+            }
+
+            .navbar-logo {
+                width: 30px;
+                height: auto;
             }
         }
         
