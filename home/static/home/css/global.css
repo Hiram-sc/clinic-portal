@@ -39,7 +39,7 @@
     align-items: flex-start;
     max-width: 360px;
     width: 100%;
-    padding: 20px 30px;
+    padding: 20px;
     border-radius: 20px;
     border: 1px solid #ece9e9;
     background-color: #FFF;
@@ -107,6 +107,10 @@
 /* Media Queries Mobile/Tablets */
 
 @media (max-width: 768px) {
+
+    .container {
+        padding: 0 4px;
+    }
 
     .title-primary {
         font-size: 32px;
