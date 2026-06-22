@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 
 from home.forms import AgendarForm
 
+
 def home(request):
 
     carousel = [
