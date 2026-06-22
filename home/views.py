@@ -68,7 +68,7 @@ def agendar(request):
                 f"Fico no aguardo de um retorno. Muito obrigado(a)! 😊"
             )
 
-            return redirect(f"https://api.whatsapp.com/send?phone=5522999104009&text={mensagem}")
+            return redirect(f"https://api.whatsapp.com/send?phone=5522999060047&text={mensagem}")
 
     else:
         form = AgendarForm()
