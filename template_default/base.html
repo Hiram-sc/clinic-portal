@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO -->
-    <title>{% block title %} Dra. Janaina Salgado | Gastropediatra {% endblock %}</title>
+    <title>{% block title %} Dra. Janaina Salgado - Gastropediatra {% endblock %}</title>
     <meta name="description" content="Dra. Janaina Salgado, especialista em gastropediatria em Campos dos Goytacazes - RJ. Atendimento infantil especializado em doenças gastrointestinais pediátricas.">
     <meta name="keywords" content="gastropediatra, pediatra, gastroenterologia infantil">
     
     <!-- Canonical URL evita conteudo duplicado no SEO -->
-    <link rel="canonical" href="{{ request.build_absolute_url }}">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 
     <!-- Data Detection -->
     <meta name="format-detection" content="telephone=no">
@@ -19,16 +19,17 @@
     <!-- Open Graph (Whatsapp, Telegram, Facebook, etc)-->
     <meta property="og:title" content="Dra. Janaina Salgado - Gastropediatra">
     <meta property="og:description" content="Atendimento em gastropediatria em Campos dos Goytacazes - RJ">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://drajanainagastro.com.br/img/icon-drajanaina.jpg">
+    <meta property="og:image" content="https://drajanainagastro.com.br/static/home/icons/icon-drajanaina.png">
     <meta property="og:image:alt" content="Logo Dra. Janaina Salgado Carvalho">
 
     <!-- Open Graph Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dra. Janaina Salgado - Gastropediatra">
     <meta name="twitter:description" content="Atendimento especializado em gastropediatria em Campos dos Goytacazes - RJ.">
-    <meta name="twitter:image" content="https://drajanainagastro.com.br/img/icon-drajanaina.jpg">
+    <meta name="twitter:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+    <meta name="twitter:image" content="https://drajanainagastro.com.br/static/home/icons/icon-drajanaina.png">
 
     <!-- JSON-LD -->
     <script type="application/ld+json">
@@ -38,7 +39,7 @@
         "name": "Dra. Janaina Salgado",
         "description": "Gastropediatra com atuação em saúde digestiva infantil, alergias alimentares e dificuldades alimentares na infância.",
         "url": "https://drajanainagastro.com.br",
-        "image": "https://drajanainagastro.com.br/img/icon-drajanaina.jpg",
+        "image": "https://drajanainagastro.com.br/static/home/icons/icon-drajanaina.png",
         "telephone": "+55 22 99906-0047",
         "medicalSpecialty": "Gastroenterologia Pediátrica",
         "sameAs": [
